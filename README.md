@@ -1,3 +1,5 @@
+[FPGA-based Machine Learning Acceleration](fpga-gpu)
+
 [OpenCL Performance on FPGA and GPU](opencl-fpga-gpu)
 
 [Movidius Performance](movidius)
