@@ -1,2 +1,1 @@
-# blog
-R&amp;D blog
+[FPGA development using OpenCL](fpga-opencl)
