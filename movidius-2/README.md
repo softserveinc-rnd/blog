@@ -54,17 +54,17 @@ As seen from the figures above, the performance of Movidius 1 and Movidius 2 is 
 
 ## Batch processing experiments on Movidius
 
-![Figure 3. Batch processing results for Raspberry Pi - a](img/movidius-2-figure-4-1.png)
+![Figure 4. Batch processing results for Raspberry Pi - a](img/movidius-2-figure-4-1.png)
 
-![Figure 3. Batch processing results for Raspberry Pi - b](img/movidius-2-figure-4-2.png)
+![Figure 4. Batch processing results for Raspberry Pi - b](img/movidius-2-figure-4-2.png)
 
-*Figure 3. Batch processing results for Raspberry Pi*
+*Figure 4. Batch processing results for Raspberry Pi*
 
-![Figure 4. Batch processing results for laptop with USB3 socket - a](img/movidius-2-figure-5-1.png)
+![Figure 5. Batch processing results for laptop with USB3 socket - a](img/movidius-2-figure-5-1.png)
 
-![Figure 4. Batch processing results for laptop with USB3 socket - b](img/movidius-2-figure-5-2.png)
+![Figure 5. Batch processing results for laptop with USB3 socket - b](img/movidius-2-figure-5-2.png)
 
-*Figure 4. Batch processing results for laptop with USB3 socket*
+*Figure 5. Batch processing results for laptop with USB3 socket*
 
 It is worth mentioning that some data processing errors on Raspberry Pi happened for Movidius 2 on batch size starting from 89 images, when for Movidius 1 the same situation happened on the batch with 66 images. Data processing errors on the laptop computer with the connected Movidius 2 stick happened on batch size of 152 images, when for Movidius 1 – on 160 images. Mentioned errors could be caused by the serial port communication restrictions as well as by the amount of Movidius’ internal memory. Detailed methodology to the found network and data size restrictions was not established. 
 
