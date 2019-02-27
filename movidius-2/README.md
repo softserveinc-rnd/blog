@@ -39,11 +39,10 @@ Looking at the confusion matrix, it becomes obvious that the face identification
 
 The application was also run on laptops with Movidius 1 and Movidius 2 sticks connected to different socket types (USB2, ESATA, USB3) as well as on Intel's CPU. Results are shown in Figures 2 and 3. 
 
-
-![Figure 2. Face search time for different devices and sockets](img\movidius-2-figure-2.png)
+![Figure 2. Face search time for different devices and sockets](img/movidius-2-figure-2.png)
 *Figure 2. Face search time for different devices and sockets*
 
-![Figure 3. Face identification time for different devices and sockets](img\movidius-2-figure-3.png)
+![Figure 3. Face identification time for different devices and sockets](img/movidius-2-figure-3.png)
 *Figure 3. Face identification time for different devices and sockets*
 
 As seen from the figures above, the performance of Movidius 1 and Movidius 2 is very close for the task of face detection for a single picture. Also, both sticks work quicker when connected to the USB3 socket. At that same time, Intel claims in press releases that Movidius 2 is 6-8 time better that Movidius 1. So, the next hypothesis for the research was formulated - better results should be received in the batch processing mode.
@@ -52,14 +51,14 @@ As seen from the figures above, the performance of Movidius 1 and Movidius 2 is 
 
 ## Batch processing experiments on Movidius
 
-![Figure 3. Batch processing results for Raspberry Pi - a](img\movidius-2-figure-4-1.png)
+![Figure 3. Batch processing results for Raspberry Pi - a](img/movidius-2-figure-4-1.png)
 
-![Figure 3. Batch processing results for Raspberry Pi - b](img\movidius-2-figure-4-2.png)
+![Figure 3. Batch processing results for Raspberry Pi - b](img/movidius-2-figure-4-2.png)
 *Figure 3. Batch processing results for Raspberry Pi*
 
-![Figure 4. Batch processing results for laptop with USB3 socket - a](img\movidius-2-figure-5-1.png)
+![Figure 4. Batch processing results for laptop with USB3 socket - a](img/movidius-2-figure-5-1.png)
 
-![Figure 4. Batch processing results for laptop with USB3 socket - b](img\movidius-2-figure-5-2.png)
+![Figure 4. Batch processing results for laptop with USB3 socket - b](img/movidius-2-figure-5-2.png)
 *Figure 4. Batch processing results for laptop with USB3 socket*
 
 It is worth mentioning that some data processing errors on Raspberry Pi happened for Movidius 2 on batch size starting from 89 images, when for Movidius 1 the same situation happened on the batch with 66 images. Data processing errors on the laptop computer with the connected Movidius 2 stick happened on batch size of 152 images, when for Movidius 1 – on 160 images. Mentioned errors could be caused by the serial port communication restrictions as well as by the amount of Movidius’ internal memory. Detailed methodology to the found network and data size restrictions was not established. 
