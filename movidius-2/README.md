@@ -33,6 +33,7 @@ The face-reidentification-retail-0095 network takes input image in format of [Bx
 openvino_fd_myriad.py example application from [6] was modified to work with two mentioned networks simultaneously. It uses OpenCV dnn object implementation to load and run the pretrained neural networks on Movidius. Both networks representation were successfully loaded into Movidius2 and worked together. To test the solution, images of people that have 15 photos at least in LFW (Labeled Faces in the Wild) database [17], were uploaded into Raspberry. For each photo, 256 dimension vector was calculated using a face-reidentification-retail-0095 neural network. After that, the distance between photos were calculated and the confusion matrix was built (Figure 1).
 
 ![Figure 1. Confusion matrix built for PoC application for face identification](img\movidius-2-figure-1.png)
+
 *Figure 1. Confusion matrix built for PoC application for face identification*
 
 Looking at the confusion matrix, it becomes obvious that the face identification works. However, the quality of recognition is not high, because the faces should be aligned before recognition to achieve better results
