@@ -7,3 +7,5 @@
 [Google TPU Performance](tpu)
 
 [FPGA development using OpenCL](fpga-opencl)
+
+[Movidius 2 Evaluation](movidius-2)
