@@ -9,3 +9,6 @@
 [FPGA development using OpenCL](fpga-opencl)
 
 [Movidius 2 Evaluation](movidius-2)
+
+[Coral Evaluation](coral) 
+
