@@ -1,4 +1,4 @@
-# Coral Evaluation
+# Coral Evaluation  (draft version)
 
 ## Experiment objectives
 Google announced Beta version of their Coral AI device a month ago and we had a possibility to evaluate it and compare with Intel's Movidius and Movidius 2 devices. Main idea of evaluation is to compare the performance of all sticks when same neural network is executed.
