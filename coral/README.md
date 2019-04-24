@@ -162,49 +162,49 @@ We also made the second experiment for EdgeTPU on Dev board to avoid USB2 bias o
 	</tr>	
 	<tr>
         <td>Inception V1</td>
-		<td></td>        
+		<td>0.004</td>        
         <td>0.021</td>        
         <td>0.113</td>     
         <td>0.591</td>
 	</tr>
 	<tr>
 		<td>Inception V2</td>
-		<td></td>        
+		<td>0.017</td>        
         <td>0.178</td>        
         <td>0.149</td>    
         <td>0.835</td>
 	</tr>
 	<tr>
 		<td>Inception V3</td>
-		<td></td>        
+		<td>0.052</td>        
         <td>0.590</td>        
         <td></td>
         <td></td>        
 	</tr>
 	<tr>
 		<td>Inception V4</td>
-		<td></td>        
+		<td>0.102</td>        
         <td>1.184</td>
         <td></td>
         <td></td>        
 	</tr>
 	<tr>
 		<td>Mobilenet V1 0.25 128</td>
-		<td></td>        
+		<td>0.001</td>        
         <td>0.004</td>
         <td>0.018</td>
         <td>0.054</td>
         </tr>
 	<tr>
 		<td>Mobilenet V1 1.0 224</td>
-		<td></td>
+		<td>0.003</td>
         <td>0.010</td>
         <td>0.069</td>
         <td>0.411</td>
         </tr>
 	<tr>
 		<td>Mobilenet V2 1.0 224</td>
-		<td></td>        
+		<td>0.003</td>        
         <td>0.012</td>
         <td></td>
         <td></td>        
