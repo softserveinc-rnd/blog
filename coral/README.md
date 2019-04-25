@@ -139,11 +139,11 @@ Raspberry Pi 3+ was selected as platform for Coral and Movidius evaluation. Taki
 
 ## Performance measuring
 
-For chip performance measurement, we used the above mentioned  TensorFlow and TensorFlowLite implementations of Inception V1, Inception V2, Inception V3, Inception V4, Mobilenet V1 0.25 128, Mobilenet V1 1.0 224, Mobilenet V2 1.0 224 networks. Test images were loaded to the stick for classification and measuring of image processing speed. 20 test images were used for experiment with 50 cycles run for data collection. Results are provided in Table 2.
+For chip performance measurement, we used the above mentioned  TensorFlow and TensorFlow Lite implementations of Inception V1, Inception V2, Inception V3, Inception V4, Mobilenet V1 0.25 128, Mobilenet V1 1.0 224, Mobilenet V2 1.0 224 networks. Test images were loaded to the stick for classification and measuring of image processing speed. 20 test images were used for experiment with 50 cycles run for data collection. Results are provided in Table 2.
 
 Note that attempts to use Inception V3, Inception V4 and Mobilenet V2 1.0 224 on Movidius 1 resulted in unexpected errors, nevertheless that models were converted without any problems. Situation with Movidius 2 was more strange - none network was even possible to load into the chip, some assertion was involved during the loading process. Information about such Movidius 2 behavior was posted to [Intel's forum](https://software.intel.com/en-us/forums/computer-vision/topic/807826) and we are waiting for answer.
 
-We also made the second experiment for EdgeTPU on Dev board to avoid USB2 bias on the device speed (Raspberry Pi 3 B+ has only USB2, when Coral was designed for USB3). Performance increased, but only in 1.4 - 2 times. Details are also shown in table 2 below, corresponding visualization in Figure 1 and 2.
+We also made the second experiment for EdgeTPU on Dev board to avoid USB2 bias on the device speed (Raspberry Pi 3 B+ has only USB2, when Coral was designed for USB3). Performance increased in 4-10 times. Details are also shown in table 2 below, corresponding visualization in Figure 1 and 2.
 
  
 
@@ -216,16 +216,16 @@ We also made the second experiment for EdgeTPU on Dev board to avoid USB2 bias o
 
 ![](img/image-processing-time-coral-edge-tpu-1.png) ![](img/image-processing-time-coral-edge-tpu-2.png)
 
-*Figure 1. Image processing time comparison for Edge TPU on Dev board and Coral.*
+*Figure 1. Image processing time comparison for Coral dev board and Coral USB stick.*
 
 ![](img/image-processing-time-coral-edge-tpu-movidius-1.png) ![](img/image-processing-time-coral-edge-tpu-movidius-1.png)
 
-*Figure 2.  Image processing time comparison for EdgeTPU, Corel and Movidius 1.*
+*Figure 2.  Image processing time comparison for Coral dev board, Coral USB stick, Movidius 1 and TensorFlow software implementation on CPU .*
 
 ## Power consumption
-We used XTARs USB Detector to measure power consumption during the computations. Measurements were made for Coral and Movidius1 only, becauseit was impossible to measure EdgeTPU consumption  current on Dev board without changes in board design. Results are shown in Table3. We also made computations of energy consumption in terms of Images per Joule (see Figure 3).
+We used XTARs USB Detector to measure power consumption during the computations. Measurements were made for Coral USB skick and Movidius 1 only, because it was impossible to measure Coral current  consumption on Dev board without changes in board design. Results are shown in Table3. We also made computations of energy consumption in terms of Images per Joule (see Figure 3).
 
-*Table 3. Power consumption of Coral and Movidius 1.*
+*Table 3. Power consumption of Coral USB stick and Movidius 1.*
 
 | Device     |  U,B |  I,A |
 | :--------- | ---: | ---: |
@@ -234,16 +234,24 @@ We used XTARs USB Detector to measure power consumption during the computations.
 
 ![](img/energy-consumption-images-per-joule-coral-movidius-1.png) ![](img/energy-consumption-images-per-joule-coral-movidius-2.png)
 
-*Figure 3.   Energy consumption in Images per Joule for Coral and Movidius 1.*
+*Figure 3.   Energy consumption in Images per Joule for Coral USB stick  and Movidius 1.*
+
+## Warnings
+
+Both TensorFlow Lite neural network file and compiled for Coral neural network file have the same extension - .tflite. However, when TensorFlow Lite neural network file is uploaded by mistake instead of compiled for Coral neural network file, we have performance degradation due to code execution on CPU. None error messages are generated. 
+
+A similar situation is when the user tries to upload several network models into Coral simultaneously - all networks are executed on CPU. 
+
+Movidius allows to execute several neural networks simultaneously on a single stick as well as usage of batch data processing.   
 
 ## Conclusions
-According to the measurements results Movidius 1 is 4-6 times faster than Coral on tasks of single image classification.
 
-But energy consumption in terms of images per Joule is very close for both Coral and Movidius 1.
+According to the measurements results Coral USB stick is about 5 times faster than Movidius 1. Coral dev board is 8-28 times faster than Movidius 1 and about 3-10 times faster that Coral USB stick. From the other side, Movidius 1 is 3-6 times faster than TensorFlow network implementation on Raspberry Pi 3+ CPU.
 
-Exceptions was Mobilenet V1 0.25 128 model - Coral allows to process about 200 images per Joule on this network, when Movidius 1 only 35.
+Coral USB stick can process in  2-18 times more images per Joule of used energy than  Movidius 1.
 
-Edge TPU on dev board is 1.4 - 2 times quicker than Coral connected to USB2.
+Still, there are problems with the neural network conversions between TF and Movidius format, but new implementation of OpenVINO (2019 R1) has better networks support. 
 
-Still there are problems with the neural network conversions between TF and Movidius format, but nevertheless, new implementation of OpenVINO (2019 R1) has better networks support. 
+Coral USB stick can process in  2-18 times more images per Joule of used energy than  Movidius 1.
 
+Still, there are problems with the neural network conversions between TensorFlow and Movidius format, but new implementation of OpenVINO (2019 R1) has better networks support. 
