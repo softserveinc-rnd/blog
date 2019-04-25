@@ -1,7 +1,7 @@
 # Coral Evaluation
 
 ## Experiment objectives
-Google announced Beta version of their Coral AI device a month ago and we had a possibility to evaluate it and compare with Intel's Movidius and Movidius 2 devices. Main idea of evaluation is to compare the performance of all sticks when same neural network is executed.
+Google announced Beta version of their Coral AI device a month ago.  We had a possibility to evaluate both implementations - USB stick and dev board. Also we want to compare Coral with Intel's Movidius 1 and Movidius 2 devices. Main idea of evaluation is to compare the performance when same neural network is executed.
 ## Obtaining internal neural network representation
 The main problem to be solved is that Movidius and Coral use different internal representations of the networks. From the othpoint of view, Coral is in beta and supports only several NN architectures. Fortunately, the last version of OpenVINO (2019 R1) has the support of [Frozen Quantized Topologies](https://docs.openvinotoolkit.org/latest/_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_TensorFlow.html) that Coral uses as well. Moreover, documentation contains recommendations for conversion of such networks in inference engine implementation used by Movidius hardware :
 
@@ -9,6 +9,7 @@ The main problem to be solved is that Movidius and Coral use different internal 
 >
 
 Information about networks selected for comparison are summarized in Table 1.
+
 *Table 1. Networks, selected for experiments.*
 
 <table>
@@ -143,7 +144,7 @@ For chip performance measurement, we used the above mentioned  TensorFlow and Te
 
 Note that attempts to use Inception V3, Inception V4 and Mobilenet V2 1.0 224 on Movidius 1 resulted in unexpected errors, nevertheless that models were converted without any problems. Situation with Movidius 2 was more strange - none network was even possible to load into the chip, some assertion was involved during the loading process. Information about such Movidius 2 behavior was posted to [Intel's forum](https://software.intel.com/en-us/forums/computer-vision/topic/807826) and we are waiting for answer.
 
-We also made the second experiment for EdgeTPU on Dev board to avoid USB2 bias on the device speed (Raspberry Pi 3 B+ has only USB2, when Coral was designed for USB3). Performance increased in 4-10 times. Details are also shown in table 2 below, corresponding visualization in Figure 1 and 2.
+We also made the second experiment for Coral on dev board to avoid USB2 bias on the device speed (Raspberry Pi 3 B+ has only USB2, when Coral USB stick was designed for USB3). Performance increased in 3-10 times. Details are also shown in table 2 below, corresponding visualization in Figure 1 and 2.
 
  
 
