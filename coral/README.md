@@ -1,4 +1,4 @@
-# Coral Evaluation
+# Coral Evaluation (draft version)
 
 ## Experiment objectives
 Google announced Beta version of their Coral AI device a month ago.  We had a possibility to evaluate both implementations - USB stick and dev board. Also we want to compare Coral with Intel's Movidius 1 and Movidius 2 devices. Main idea of evaluation is to compare the performance when same neural network is executed.
@@ -144,7 +144,7 @@ For chip performance measurement, we used the above mentioned  TensorFlow and Te
 
 Note that attempts to use Inception V3, Inception V4 and Mobilenet V2 1.0 224 on Movidius 1 resulted in unexpected errors, nevertheless that models were converted without any problems. Situation with Movidius 2 was more strange - none network was even possible to load into the chip, some assertion was involved during the loading process. Information about such Movidius 2 behavior was posted to [Intel's forum](https://software.intel.com/en-us/forums/computer-vision/topic/807826) and we are waiting for answer.
 
-We also made the second experiment for Coral on dev board to avoid USB2 bias on the device speed (Raspberry Pi 3 B+ has only USB2, when Coral USB stick was designed for USB3). Performance increased in 3-10 times. Details are also shown in table 2 below, corresponding visualization in Figure 1 and 2.
+We also made the second experiment for Coral on dev board to avoid USB2 bias on the device speed (Raspberry Pi 3 B+ has only USB2, when Coral USB stick was designed for USB3). Performance increased in 3-10 times. Same networks were executed on Raspberry Pi's CPU for comparison. Details are shown in table 2 below, corresponding visualization in Figure 1 and 2.
 
  
 
@@ -152,15 +152,21 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 
 <table>
 	<tr>
-		<td rowspan="2">Network</td>
+		<td rowspan="3">Network</td>
 		<td colspan="4">Mean image processing time, sec</td>
 	</tr>
 	<tr>		
         <td>Coral  Dev board</td>
 		<td>Coral USB stick</td>
 		<td>Movidius 1</td>
-		<td>TF</td>
-	</tr>	
+		<td>CPU</td>
+	</tr>
+    <tr>		
+        <td>INT8</td>
+		<td>INT8</td>
+		<td>FP16</td>
+		<td>INT8</td>
+	</tr>
 	<tr>
         <td>Inception V1</td>
 		<td>0.004</td>        
@@ -215,6 +221,7 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 
 
 
+
 ![](img/image-processing-time-coral-edge-tpu-1.png) ![](img/image-processing-time-coral-edge-tpu-2.png)
 
 *Figure 1. Image processing time comparison for Coral dev board and Coral USB stick.*
@@ -222,6 +229,13 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 ![](img/image-processing-time-coral-edge-tpu-movidius-1.png) ![](img/image-processing-time-coral-edge-tpu-movidius-1.png)
 
 *Figure 2.  Image processing time comparison for Coral dev board, Coral USB stick, Movidius 1 and TensorFlow software implementation on CPU .*
+
+Both TensorFlow Lite neural network file and compiled for Coral neural network file have the same extension - .tflite. However, when TensorFlow Lite neural network file is uploaded by mistake instead of compiled for Coral neural network file, we have performance degradation due to code execution on [CPU](https://coral.withgoogle.com/static/images/compile-tflite-to-edgetpu.png). None error messages are generated. 
+
+A similar situation is when the user tries to upload several network models into Coral simultaneously - all networks are executed on  [CPU](https://coral.withgoogle.com/static/images/compile-tflite-to-edgetpu.png). 
+
+Movidius allows to execute several neural networks simultaneously on a single stick as well as usage of batch data processing.   
+
 
 ## Power consumption
 We used XTARs USB Detector to measure power consumption during the computations. Measurements were made for Coral USB skick and Movidius 1 only, because it was impossible to measure Coral current  consumption on Dev board without changes in board design. Results are shown in Table3. We also made computations of energy consumption in terms of Images per Joule (see Figure 3).
@@ -236,14 +250,6 @@ We used XTARs USB Detector to measure power consumption during the computations.
 ![](img/energy-consumption-images-per-joule-coral-movidius-1.png) ![](img/energy-consumption-images-per-joule-coral-movidius-2.png)
 
 *Figure 3.   Energy consumption in Images per Joule for Coral USB stick  and Movidius 1.*
-
-## Warnings
-
-Both TensorFlow Lite neural network file and compiled for Coral neural network file have the same extension - .tflite. However, when TensorFlow Lite neural network file is uploaded by mistake instead of compiled for Coral neural network file, we have performance degradation due to code execution on CPU. None error messages are generated. 
-
-A similar situation is when the user tries to upload several network models into Coral simultaneously - all networks are executed on CPU. 
-
-Movidius allows to execute several neural networks simultaneously on a single stick as well as usage of batch data processing.   
 
 ## Conclusions
 
