@@ -230,11 +230,11 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 
 *Figure 2.  Image processing time comparison for Coral dev board, Coral USB stick, Movidius 1 and TensorFlow software implementation on CPU .*
 
-Both TensorFlow Lite neural network file and compiled for Coral neural network file have the same extension - .tflite. However, when TensorFlow Lite neural network file is uploaded by mistake instead of compiled for Coral neural network file, we have performance degradation due to code execution on [CPU](https://coral.withgoogle.com/static/images/compile-tflite-to-edgetpu.png). None error messages are generated. 
+Both TensorFlow Lite neural network file and compiled for Coral neural network file have the same extension - .tflite. However, when TensorFlow Lite neural network file is uploaded instead of compiled for Coral neural network file, we have performance degradation due to code execution on [CPU](https://coral.withgoogle.com/static/images/compile-tflite-to-edgetpu.png). None error messages are generated. 
 
-A similar situation is when the user tries to upload several network models into Coral simultaneously - all networks are executed on  [CPU](https://coral.withgoogle.com/static/images/compile-tflite-to-edgetpu.png). 
+Also, we tried to upload several network models into Coral simultaneously and found that starting from the second they are executed on  [CPU](https://coral.withgoogle.com/static/images/compile-tflite-to-edgetpu.png) too. 
 
-Movidius allows to execute several neural networks simultaneously on a single stick as well as usage of batch data processing.   
+Movidius allows executing several neural networks simultaneously on a single stick as well as usage of batch data processing.   
 
 
 ## Power consumption
