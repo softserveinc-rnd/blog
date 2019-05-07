@@ -153,17 +153,19 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 <table>
 	<tr>
 		<td rowspan="3">Network</td>
-		<td colspan="4">Mean image processing time, sec</td>
+		<td colspan="5">Mean image processing time, sec</td>
 	</tr>
 	<tr>		
         <td>Coral  Dev board</td>
 		<td>Coral USB stick</td>
 		<td>Movidius 1</td>
+		<td>Movidius 2</td>
 		<td>CPU</td>
 	</tr>
     <tr>		
         <td>INT8</td>
 		<td>INT8</td>
+		<td>FP16</td>
 		<td>FP16</td>
 		<td>INT8</td>
 	</tr>
@@ -171,14 +173,16 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
         <td>Inception V1</td>
 		<td>0.004</td>        
         <td>0.021</td>        
-        <td>0.113</td>     
+        <td>0.113</td> 
+        <td></td>
         <td>0.591</td>
 	</tr>
 	<tr>
 		<td>Inception V2</td>
 		<td>0.017</td>        
         <td>0.178</td>        
-        <td>0.149</td>    
+        <td>0.149</td> 
+        <td></td>
         <td>0.835</td>
 	</tr>
 	<tr>
@@ -186,6 +190,7 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 		<td>0.052</td>        
         <td>0.590</td>        
         <td></td>
+        <td>0.126</td>
         <td></td>        
 	</tr>
 	<tr>
@@ -193,6 +198,7 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 		<td>0.102</td>        
         <td>1.184</td>
         <td></td>
+        <td>0.206</td>
         <td></td>        
 	</tr>
 	<tr>
@@ -200,6 +206,7 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 		<td>0.001</td>        
         <td>0.004</td>
         <td>0.018</td>
+        <td>0.014</td>
         <td>0.054</td>
         </tr>
 	<tr>
@@ -207,6 +214,7 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 		<td>0.003</td>
         <td>0.010</td>
         <td>0.069</td>
+        <td>0.047</td>
         <td>0.411</td>
         </tr>
 	<tr>
@@ -214,6 +222,7 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 		<td>0.003</td>        
         <td>0.012</td>
         <td></td>
+        <td>0.052</td>
         <td></td>        
 	</tr>
 </table>
