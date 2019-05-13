@@ -3,11 +3,11 @@
 ## Experiment objectives
 Google announced Beta version of their Coral AI device a month ago.  We had a possibility to evaluate both implementations - USB stick and dev board. Also we want to compare Coral with Intel's Movidius 1 and Movidius 2 devices. Main idea of evaluation is to compare the performance when same neural network is executed.
 ## Obtaining internal neural network representation
-The main problem to be solved is that Movidius and Coral use different internal representations of the networks. From the other point of view, Coral is in beta and supports only several NN architectures. For evaluation we selected Inception V1, Inception V2, Inception V3, Inception V4, Mobilenet V1 0.25 128, Mobilenet V1 1.0 224, Mobilenet V2 1.0 224 models that are hosted on [TensorFlow Lite site](https://www.tensorflow.org/lite/guide/hosted_models/) .
+The main problem to be solved is that Movidius and Coral use different internal representations of the networks. From the other point of view, Coral is in beta and supports only several NN architectures. For evaluation, we selected Inception V1, Inception V2, Inception V3, Inception V4, Mobilenet V1 0.25 128, Mobilenet V1 1.0 224, Mobilenet V2 1.0 224 models that are hosted on [TensorFlow Lite site](https://www.tensorflow.org/lite/guide/hosted_models/) .
 
 Quantized model variants were downloaded for execution on Coral device. Corresponding .tflite network files were compiled after into internal network representations using [Edge TPU Model Compiler](https://coral.withgoogle.com/web-compiler/). 
 
-Floating point model variants were downloaded for execution on Movidius devices. Network description from .pb files were converted into corresponding .bin and .xml files of internal representation using model optimizer from openVINO 2019 R1 distribution. For convertation following command line parameters were used:
+Floating point model variants were downloaded for execution on Movidius devices. Network descriptions from .pb files were converted into corresponding .bin and .xml files of internal representation using model optimizer from openVINO 2019 R1 distribution. For conversion following command line parameters were used:
 `--input input`
 `--input_shape [1,HEIGHT,WIDTH,3]`
 Where HEIGHT and WIDTH are the input images height and width for which the model was trained.
@@ -17,10 +17,9 @@ Where HEIGHT and WIDTH are the input images height and width for which the model
 
 ## Performance measuring
 
-Raspberry Pi 3+ was selected as platform for Coral and Movidius evaluation. For chip performance measurement, we used the above mentioned  TensorFlow and TensorFlow Lite implementations of Inception V1, Inception V2, Inception V3, Inception V4, Mobilenet V1 0.25 128, Mobilenet V1 1.0 224, Mobilenet V2 1.0 224 networks. Test images were loaded to the stick for classification and measuring of image processing speed. 20 test images were used for experiment with 50 cycles run for data collection. Results are provided in Table 2.
+Raspberry Pi 3+ was selected as a platform for Coral and Movidius evaluation. For chip performance measurement, we used the above mentioned  TensorFlow and TensorFlow Lite implementations of Inception V1, Inception V2, Inception V3, Inception V4, Mobilenet V1 0.25 128, Mobilenet V1 1.0 224, Mobilenet V2 1.0 224 networks. Test images were loaded to the stick for classification and measuring of image processing speed. 20 test images were used for experiment with 50 cycles run for data collection. Results are provided in Table 2.
 
-We also made the second experiment for Coral on dev board to avoid USB2 bias on the device speed (Raspberry Pi 3 B+ has only USB2, when Coral USB stick was designed for USB3). Performance increased in 3-10 times. Same networks were executed on Raspberry Pi's CPU for comparison. Details are shown in table 1 below, corresponding visualization in Figure 1 and 2.
-
+We also made the second experiment for Coral on dev board to avoid USB2 bias on the device speed (Raspberry Pi 3 B+ has only USB2 when Coral USB stick was designed for USB3). Performance increased in 3-10 times. Same networks were executed on Raspberry Pi's CPU for comparison. Details are shown in table 1 below, corresponding visualization in Figure 1 and 2.
 
 *Table 2. Results of performance measuring.*
 
@@ -120,7 +119,7 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 
 ![](img/image-processing-time-quantized-networks.png)
 
-*Figure 1. Image processing time comparison for quntized networks models executed on Coral dev board, Coral USB stick and CPU.*
+*Figure 1. Image processing time comparison for quantized networks models executed on Coral dev board, Coral USB stick and CPU.*
 
 ![](img/image-processing-time-floating-point-networks.png)
 
@@ -150,9 +149,7 @@ We used XTARs USB Detector to measure power consumption during the computations.
 
 ## Conclusions
 
-According to the measurements results Coral USB stick is about 5 times faster than Movidius 1. Coral dev board is 8-28 times faster than Movidius 1 and about 3-10 times faster that Coral USB stick. From the other side, Movidius 1 is 3-6 times faster than TensorFlow network implementation on Raspberry Pi 3+ CPU.
+According to the measurements results Coral USB stick is about 5 - 28 times faster than Raspberry Pi's CPU. Coral dev board is 50 - 145 times faster than Raspberry Pi's CPU and about 3-10 times faster that Coral USB stick. From the other side, Movidius 1 is 3-6 times faster than Raspberry Pi's CPU, Movidius 2 is 3-15 times faster that Raspberry Pi's CPU and up to 3 times faster than Movidius 1.
 
 Coral USB stick can process in  2-18 times more images per Joule of used energy than Movidius 1 or Movidius 2.
-
-Still, there are problems with the neural network conversions between TF and Movidius format, but new implementation of OpenVINO (2019 R1) has better networks support. 
 
