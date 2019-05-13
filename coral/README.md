@@ -1,16 +1,22 @@
-# Coral Evaluation  (draft version)
+# Coral Evaluation 
 
 ## Experiment objectives
-Google announced Beta version of their Coral AI device a month ago.  We had a possibility to evaluate both implementations - USB stick and dev board. Also we want to compare Coral with Intel's Movidius 1 and Movidius 2 devices. Main idea of evaluation is to compare the performance when same neural network is executed.
+Google announced Beta version of their Coral AI device a month ago.  We had a possibility to evaluate both implementations - USB stick and dev board. We want to measure performance gain of Coral usage instead of Raspberry Pi's CPU for neural networks calculations as well as measure of same performance gain for Intel's Movidius 1 and Movidius 2 devices when same neural networks are executed.
 ## Obtaining internal neural network representation
 The main problem to be solved is that Movidius and Coral use different internal representations of the networks. From the other point of view, Coral is in beta and supports only several NN architectures. For evaluation, we selected Inception V1, Inception V2, Inception V3, Inception V4, Mobilenet V1 0.25 128, Mobilenet V1 1.0 224, Mobilenet V2 1.0 224 models that are hosted on [TensorFlow Lite site](https://www.tensorflow.org/lite/guide/hosted_models/) .
 
 Quantized model variants were downloaded for execution on Coral device. Corresponding .tflite network files were compiled after into internal network representations using [Edge TPU Model Compiler](https://coral.withgoogle.com/web-compiler/). 
 
+Both TensorFlow Lite neural network file and compiled for Coral neural network file have the same extension - .tflite. However, when TensorFlow Lite neural network file is uploaded instead of compiled for Coral neural network file, we have performance degradation due to code execution on [CPU](https://coral.withgoogle.com/static/images/compile-tflite-to-edgetpu.png). None error messages are generated. 
+
 Floating point model variants were downloaded for execution on Movidius devices. Network descriptions from .pb files were converted into corresponding .bin and .xml files of internal representation using model optimizer from openVINO 2019 R1 distribution. For conversion following command line parameters were used:
 `--input input`
 `--input_shape [1,HEIGHT,WIDTH,3]`
 Where HEIGHT and WIDTH are the input images height and width for which the model was trained.
+
+Also, we tried to upload several network models into Coral simultaneously and found that starting from the second they are executed on  [CPU](https://coral.withgoogle.com/static/images/compile-tflite-to-edgetpu.png) too. 
+
+Movidius allows executing several neural networks simultaneously on a single stick as well as usage of batch data processing.   
 
 
 
@@ -30,7 +36,7 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 	</tr>
 	<tr>		
         <td colspan="3">Quantized Network</td>
-		<tdcolspan="3">Floating Point Network</td>		
+		<td colspan="3">Floating Point Network</td>		
 	</tr>
 	<tr>		
         <td>Coral  Dev board</td>
@@ -53,24 +59,24 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 		<td>0.004</td>        
         <td>0.021</td>        
         <td>0.591</td> 
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>note<sup>2</sup></td>
+        <td>note<sup>2</sup></td>
+        <td>note<sup>2</sup></td>
 	</tr>
 	<tr>
 		<td>Inception V2</td>
 		<td>0.017</td>        
         <td>0.178</td>        
         <td>0.835</td> 
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>note<sup>2</sup></td>
+        <td>note<sup>2</sup></td>
+        <td>note<sup>2</sup></td>
 	</tr>
 	<tr>
 		<td>Inception V3</td>
 		<td>0.052</td>        
         <td>0.590</td>        
-        <td></td>
+        <td>note<sup>1</sup></td>
         <td>0.359</td>
         <td>0.126</td>
         <td>1.897</td>        
@@ -79,10 +85,10 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 		<td>Inception V4</td>
 		<td>0.102</td>        
         <td>1.184</td>
-        <td></td>
+        <td>note<sup>1</sup></td>
         <td>0.705</td>
         <td>0.206</td>
-        <td></td>        
+        <td>note<sup>3</sup></td>        
 	</tr>
 	<tr>
 		<td>Mobilenet V1 0.25 128</td>
@@ -106,12 +112,23 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 		<td>Mobilenet V2 1.0 224</td>
 		<td>0.003</td>        
         <td>0.012</td>
-        <td></td>
+        <td>note<sup>1</sup></td>
         <td>0.068</td>
         <td>0.052</td>
         <td>0.323</td>        
 	</tr>
 </table>
+
+
+
+Notes 
+
+1 - Errors during execution network on CPU
+
+2 - Floating point network variant is absent on  [TensorFlow Lite site](https://www.tensorflow.org/lite/guide/hosted_models/) 
+
+3 - Memory allocation errors during execution on CPU
+
 
 
 
@@ -125,11 +142,7 @@ We also made the second experiment for Coral on dev board to avoid USB2 bias on 
 
 *Figure 2.  Image processing time comparison for floating point network models executed on  Movidius 1, Movidius 2  and CPU .*
 
-Both TensorFlow Lite neural network file and compiled for Coral neural network file have the same extension - .tflite. However, when TensorFlow Lite neural network file is uploaded instead of compiled for Coral neural network file, we have performance degradation due to code execution on [CPU](https://coral.withgoogle.com/static/images/compile-tflite-to-edgetpu.png). None error messages are generated. 
 
-Also, we tried to upload several network models into Coral simultaneously and found that starting from the second they are executed on  [CPU](https://coral.withgoogle.com/static/images/compile-tflite-to-edgetpu.png) too. 
-
-Movidius allows executing several neural networks simultaneously on a single stick as well as usage of batch data processing.   
 
 
 ## Power consumption
@@ -142,6 +155,8 @@ We used XTARs USB Detector to measure power consumption during the computations.
 | Coral      | 5.26 | 0.11 |
 | Movidius 1 | 5.22 | 0.30 |
 | Movidius 2 | 5.19 | 0.31 |
+
+
 
 ![](img/energy-consumption-images-per-joule-coral-movidius-1-2.png)
 
