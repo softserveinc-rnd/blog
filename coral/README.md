@@ -149,7 +149,7 @@ We used XTARs USB Detector to measure power consumption during the computations.
 
 ## Conclusions
 
-According to the measurements results Coral USB stick is about 5 - 28 times faster than Raspberry Pi's CPU. Coral dev board is 50 - 145 times faster than Raspberry Pi's CPU and about 3-10 times faster that Coral USB stick. From the other side, Movidius 1 is 3-6 times faster than Raspberry Pi's CPU, Movidius 2 is 3-15 times faster that Raspberry Pi's CPU and up to 3 times faster than Movidius 1.
+According to the measurements results Coral USB stick is about 5 - 28 times faster than Raspberry Pi's CPU. Coral dev board is 50 - 145 times faster than Raspberry Pi's CPU and about 3-10 times faster than Coral USB stick. From the other side, Movidius 1 is 3-6 times faster than Raspberry Pi's CPU, Movidius 2 is 3-15 times faster than Raspberry Pi's CPU and up to 3 times faster than Movidius 1.
 
 Coral USB stick can process in  2-18 times more images per Joule of used energy than Movidius 1 or Movidius 2.
 
