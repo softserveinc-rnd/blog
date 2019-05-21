@@ -50,14 +50,16 @@ For the test we used black box and LED lamp with the controlled intensity. The t
 
 *Figure 5. Current-Voltage characteristics of DUTs with 200 Lux light intensity*
 
-*Table 2. Power consumption of Coral USB stick and Movidius 1.*
+| Parameters\Panel          | Panasonic [AC-1801](https://eu.mouser.com/datasheet/2/315/panasonic_AM-1801CA-1197162.pdf) | Lightricity [EXL10-4V170](https://img1.wsimg.com/blobby/go/33b5bf3b-ee9e-480c-b78b-959e68adce90/downloads/1cec21vj9_822338.pdf) |
+| :------------------------ | -----------------------------------------------------------: | -----------------------------------------------------------: |
+| Dimensions, mm            |                                                  53.0 x 25.0 |                                                  50.0 x 20.0 |
+| Area, cm <sup>2</sup>     |                                                        13.25 |                                                         7.80 |
+| Number of cells           |                                                         8.00 |                                                         8.00 |
+| Open circuit voltage, V   |                                                         4.90 |                                                         4.61 |
+| Short circuit current, uA |                                                        26.50 |                                                         48.5 |
 
-| Parameters\Panel      |  U,B |  I,A |
-| :--------- | ---: | ---: |
-| Dimensions, mm       | 5.26 | 0.11 |
-| Area, cm <sup>2</sup> | 5.22 | 0.30 |
-| Movidius 2 | 5.19 | 0.31 |
 
+According to the Figure 5. we conclude that Lightricity panel is capable to provide more power output with the smaller dimensions. The maximum power output of Lightricity panel [EXL10-4V170](https://img1.wsimg.com/blobby/go/33b5bf3b-ee9e-480c-b78b-959e68adce90/downloads/1cec21vj9_822338.pdf) in this test was 162uW which is close to the datasheet value (170uW). Our next step will be to build a network of connected devices that uses Lightricity panels as main power source for energy harvesting. 
 
 
 
