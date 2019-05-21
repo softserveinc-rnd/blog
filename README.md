@@ -12,3 +12,4 @@
 
 [Coral Evaluation](coral) 
 
+[Lightricity Solar Panels Evaluation](solar-panels)
