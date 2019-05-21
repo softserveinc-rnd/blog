@@ -1,6 +1,6 @@
 # Lightricity Solar Panels Evaluation 
 
-##Executive Summary
+## Executive Summary
 
 People spend most of the time nowadays being inside the buildings. There is a lot of devices that are already installed and used as light control, heating, ventilation, and air conditioning (HVAC) subsystems, access control. The number of these devices increases and most of them require access to the wall power or batteries. The indoor solar panels allow to power devices having light inside the buildings as a power source. This can reduce maintenance costs for powering infrastructure inside the buildings with good lighted environment by replacing the batteries with the solar panels.
 
@@ -56,7 +56,7 @@ For the test we used black box and LED lamp with the controlled intensity. The t
 | Area, cm <sup>2</sup>     |                                                        13.25 |                                                         7.80 |
 | Number of cells           |                                                         8.00 |                                                         8.00 |
 | Open circuit voltage, V   |                                                         4.90 |                                                         4.61 |
-| Short circuit current, uA |                                                        26.50 |                                                         48.5 |
+| Short circuit current, uA |                                                        26.50 |                                                        48.50 |
 
 
 According to the Figure 5. we conclude that Lightricity panel is capable to provide more power output with the smaller dimensions. The maximum power output of Lightricity panel [EXL10-4V170](https://img1.wsimg.com/blobby/go/33b5bf3b-ee9e-480c-b78b-959e68adce90/downloads/1cec21vj9_822338.pdf) in this test was 162uW which is close to the datasheet value (170uW). Our next step will be to build a network of connected devices that uses Lightricity panels as main power source for energy harvesting. 
