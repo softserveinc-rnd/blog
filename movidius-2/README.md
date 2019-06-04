@@ -70,8 +70,8 @@ It is worth mentioning that some data processing errors on Raspberry Pi happened
 
 ## Sources List
 
-1. [Andriy Bench. Movidius performance.](https://github.com/softserveinc-rnd/blog/blob/master/movidius/README.md)
-2. [Andriy Bench. Will machines see with Movidius?]( https://www.softserveinc.com/en-us/blog/will-machines-see-with-movidius/)
+1. [Movidius performance.](https://github.com/softserveinc-rnd/blog/blob/master/movidius/README.md)
+2. [Will machines see with Movidius?]( https://www.softserveinc.com/en-us/blog/will-machines-see-with-movidius/)
 3. [Intel Neural Compute Stick]( https://software.intel.com/en-us/neural-compute-stick)
 4. [Install the Intel Distribution of OpenVINO toolkit for Linux]( https://software.intel.com/en-us/articles/OpenVINO-Install-Linux)
 5. [Install Intel Distribution of OpenVINO toolkit for Windows 10]( https://software.intel.com/en-us/articles/OpenVINO-Install-Windows)
