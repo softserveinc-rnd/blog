@@ -71,7 +71,6 @@ Also we used results from previous article ([FPGA research](README.md)) and calc
  
 Movidius won in that category. So we recommend usage of that stick in low power consumption devices (sensors, drones, cameras).
 
-Author: Andriy Bench  
 
 ## Appendix. Detailed results of performance measuring.
 
