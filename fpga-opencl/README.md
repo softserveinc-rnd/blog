@@ -210,4 +210,3 @@ Globally, getting more familiar with OpenCL intrinsics and special features coul
 - [DE10-Nano User Manual](https://www.intel.com/content/dam/altera-www/global/en_US/portal/dsn/42/doc-us-dsnbk-42-4302081511597-de10-nano-user-manual.pdf)
    
 
-Author: Taras Kurnytskyi
