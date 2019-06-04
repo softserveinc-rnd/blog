@@ -53,7 +53,7 @@ and up to 40 times faster on batches of big sizes (164000 images).
 Hence, it is more expedient to use TPU while working with big amounts of data for training in terms of saving money. 
 Whereas CPU remains for running Predict functionality.
 
-Author: Andriy Bench, Nazariy Onyshko  
+
 
 
 
