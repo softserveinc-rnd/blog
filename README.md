@@ -15,3 +15,5 @@
 [Lightricity Solar Panels Evaluation](solar-panels)
 
 [Non-Contact Heart Rate Measurement Methods](heart-rate)
+
+[Wireless Communication Between Devices ](wireless-communication)
