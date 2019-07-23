@@ -22,9 +22,69 @@
     </thead>
     <tbody>
     	<tr>
-    		<td>1</td>
-    		<td>1</td>
-    		<td>1</td>
+    		<td>6.765 MHz </td>
+    		<td>6.795 MHz </td>
+    		<td> </td>
+    	</tr>
+    	<tr>
+    		<td>13.553 MHz </td>
+    		<td>13.567 MHz </td>
+    		<td> </td>
+    	</tr>
+    	<tr>
+    		<td>26.957 MHz </td>
+    		<td>27.283 MHz  </td>
+    		<td> </td>
+    	</tr>
+    	<tr>
+    		<td>40.66 MHz  </td>
+    		<td>40.7MHz </td>
+    		<td> </td>
+    	</tr>
+    	<tr>
+    		<td>433.05 MHz </td>
+    		<td>434.79 MHz  </td>
+    		<td>Used only in Europe   (Region 1) Used only in Europe   (Region 1)  </td>
+    	</tr>
+    	<tr>
+    		<td>902 MHz  </td>
+    		<td>928 MHz  </td>
+    		<td>Used only In America (Region 2)  </td>
+    	</tr>
+    	<tr>
+    		<td>6.765 MHz </td>
+    		<td>6.795 MHz </td>
+    		<td> </td>
+    	</tr>
+    	<tr>
+    		<td>2.4 GHz </td>
+    		<td>2.5 GHz  </td>
+    		<td> </td>
+    	</tr>
+    	<tr>
+    		<td>5.725 GHz </td>
+    		<td>5.875 GHz </td>
+    		<td> </td>
+    	</tr>
+    	<tr>
+    		<td>24 GHz </td>
+    		<td>24.25 GHz</td>
+    		<td> </td>
+    	</tr>
+    	<tr>
+    		<td>61 GHz </td>
+    		<td>61.5 GHz  </td>
+    		<td> </td>
+    	</tr>
+    	<tr>
+    		<td>122 GHz </td>
+    		<td>123 GHz  </td>
+    		<td> </td>
+    	</tr>
+    	<tr>
+    		<td>244 GHz </td>
+    		<td>246 GHz  </td>
+    		<td> </td>
     	</tr>
     </tbody>
 </table>
