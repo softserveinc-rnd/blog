@@ -141,7 +141,7 @@ On the other hand, the water is relatively transparent to light in the visible b
 
 Long Range VLC is used for the high rate communication between the two fixed points over distances up to several kilometers. It is an efficient solution to bridge the gap between the end-user and the fiber optic infrastructure already in place, WLAN-to-WLAN connectivity in enterprise and campus environments, broadband access to remote or underserved areas, and wireless video surveillance/ monitoring. They are also useful as redundant links in the cases of disasters because they are easy-to-install and re-deployable. Further details are in [11]. 
 
-##Mechanical waves 
+## Mechanical waves 
 
 ### Acoustic communication 
 
