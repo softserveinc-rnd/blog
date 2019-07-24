@@ -1,22 +1,32 @@
 # Wireless Communication Between Devices 
 
-
 ## Executive summary
 
-The radio waves are used traditionally to organize wireless communications between devices. However, last researches are concentrated on wireless optical, acoustic and ultrasonic communications, especially for vehicle-to-vehicle communication on the roads and for underwater communications. 
+The radio waves are traditionally used to organize wireless communications  between the devices. However, last researches are concentrated on the wireless  optical, acoustic and ultrasonic communications, especially for the vehicle-to-vehicle communication on the roads and for the underwater communications.
 
-A new kind of communication is proposed for nontechnology applications – chemical communication.   
-
+A new kind of communication is proposed for the nontechnology applications – chemical communication.  
 
 ## Electromagnetic waves 
 
-All wireless communication between devices now is done by changing one or several parameters of waves (magnitude, frequency of phase). Waves are divided on electromagnetic, mechanical and gravitational. First two kinds of waves are well studied and used for communication. The last kind of waves predicted in Einstein's works. The first observation was in 2016 and didn’t have practical usage yet. 
+All wireless communication between the devices now is done by changing one or 
+several parameters of the waves (magnitude, frequency of phase). Waves are 
+divided on electromagnetic, mechanical and gravitational. First two kinds of waves 
+are well studied and used for communication. The last kind of waves was predicted 
+in Einstein's works. The first observation was made in 2016 and it still does not have
+the practical usage.
 
 ### Radio communication 
 
-Radio waves propagate well through air and space, can avoid obstacles due to diffraction phenomena. Waves with bigger length (or lower frequency) can avoid more significant obstacles. But waves with bigger length require bigger equipment and more energy for a generation.  
+Radio waves propagate well through air and space, can avoid obstacles due to 
+diffraction phenomena. Waves with bigger length (or lower frequency) can avoid 
+more significant obstacles. But waves with bigger length require bigger equipment 
+and more energy for generation  
 
-The ISM (Industrial, Scientific, and Medical) radio band is usually used for communication between devices because it didn’t require licensing. Initially, ISM band was used for non-communication purposes. Now it is widely used for short-range device to device communication. Band frequency details are in the table below. 
+The ISM (Industrial, Scientific, and Medical) radio band is usually used for 
+communication between devices because it does not require licensing. Initially, ISM 
+band was used for non-communication purposes. Now it is widely used for the short-
+range device to device communication. Band frequency details are provided in the 
+table below.
 
 
 <table>
@@ -95,60 +105,61 @@ The ISM (Industrial, Scientific, and Medical) radio band is usually used for com
     </tbody>
 </table>
 
-The most popular standards for different kinds of network communication are shown in the figure below (obtained from [3]). Protocol details are described in [1], [2], [3]. 
+The most popular standards for different kinds of network communication are shown in the figure below (taken from [3]). Protocol details are described in [1], [2], [3]. 
 
 ![Figure 1. Standards for wireless radio communication](img/wireless-tecnologies-range.png)
-
 
 ### Wireless Optical Communication
 
 #### Infrared communication 
-Infrared communication has several advantages over radio communication. First is security – infrared waves are not propagated through walls that makes it ideal for indoor communication in a single room. Second is safety – infrared waves are not harmful to human. Third – infrared receivers and transmitters are chip now and allow to transmit data with 1Gbps rate. 
 
-This kind of communication has several disadvantages too. It is not suitable for outdoor communication. Typical room contain additionally several sources of infrared noise that complicate communications.  
+Infrared communication has several advantages over the radio communication.  Firstly,  it is security – infrared waves are not propagated through walls that makes it perfect for the indoor communication within a single room. Secondly, it is safety – infrared waves are not harmful to human. Thirdly,  – infrared receivers and transmitters are cheap now and allow to transmit data with 1Gbps rate.
 
-Possible variants of organization of infrared communication are shown below (figure was obtained from [4]).  
+This kind of communication also has several disadvantages. It is not suitable for the outdoor communication. Typical room additionally contains several sources of the infrared noise that complicates the communications.  
+
+Possible variants of infrared communication organization are shown below (taken from [4]).   
 
 ![Figure 2. Variants of infrared commnunication](img/infrared-connunication-wariants.png)
 
 #### Lazer communication and free space optical communications 
 
-Lazer is suitable for communication between Earth and space satellites. Experiments in free space show that it can transfer data on several thousand kilometers and have the potential to bridge interplanetary distances of millions of kilometers, using optical telescopes as beam expanders. 
+Lazer is suitable for communication between the Earth and the space satellites. Experiments in free space show that it can transfer data on several thousand kilometers and have the potential to bridge interplanetary distances of millions of kilometers, using the optical telescopes as beam expanders.
 
-On Earth, lasers are used for inter-building communications. Some kinds of lasers suitable for underwater communications and measurements. Details are in [6],[7]. 
+On the Earth, lazers are used for inter-building communications. Some kinds of lasers are also suitable for the underwater communications and measurements. Details are in [6],[7].
 
 #### Visible light communication 
 
-Intensive development of visible light communication (VLC) systems started with extensive commercial usage of light-emitting diodes (LED). This technology allows creating of the full range of communication solutions: Ultra Short Range Communication, Short Range Communication, Medium Range Communication, as well as Long Range Communications.   
+IIntensive development of visible light communication (VLC) systems started with the extensive commercial usage of the light-emitting diodes (LED). This technology allows creating of the full range of communication solutions: Ultra Short Range Communication, Short Range Communication, Medium Range Communication, as well as Long Range Communications   
 
-Ultra Short Range VLC is used mainly for intra-  and inter - chip communications.  
+Ultra Short Range VLC is used mainly for intra-  and inter - chip communications.
 
-A most interesting application of Short Range VLC solutions is the creation of a wireless body area network (WBAN). The main trigger here is the progress in Organic LED (OLED) technology that allow embedding of optical transceivers directly into the closing. Another application area – the interconnection of devices around of workspace. The integrated phone camera (imaging sensor) is used as an optical detector to enable various M2M applications, including phone-to-phone, phone-to-TV, and phone-to-vending machine communication in the last researches. 
+The most interesting application of the Short Range VLC solutions is the creation of a wireless body area network (WBAN). The main trigger here is the progress in Organic LED (OLED) technology that allow embedding of optical transceivers directly into the closing. Another application area – the interconnection of the devices around the workspace. The integrated phone camera (imaging sensor) is used as an optical detector to enable various M2M applications, including phone-to-phone, phone-to-TV, and phone-to-vending machine communication in the last researches. 
 
-Medium Range VLC is used for LAN organization. LiFi will replace WiFi networks. In addition to indoor deployment, LEDs are being widely used in outdoor lighting, traffic signs, advertising displays, car headlights/taillights, etc. This allows for vehicle-to-vehicle communication and vehicle-to-infrastructure communication [8] as well as signaling and broadcasting safety-related information to vehicles on the road.   
+Medium Range VLC is used for LAN organization. LiFi will replace WiFi networks. In addition to the indoor deployment, LEDs are being widely used in the outdoor lighting, traffic signs, advertising displays, car headlights/taillights, etc. This allows for vehicle-to-vehicle communication and vehicle-to-infrastructure communication [8] as well as signaling and broadcasting safety-related information to vehicles on the road.     
 
-On the other hand, the water is relatively transparent to light in the visible band of the spectrum (absorption takes its minimum value in the blue/green spectral range). This fact  paves the way for underwater VLC which can achieve data speeds of hundreds of Mbps for short ranges [9] 
+On the other hand, the water is relatively transparent to light in the visible band of the spectrum (absorption takes its minimum value in the blue/green spectral range).This fact  paves the way for the underwater VLC which can achieve data speeds of hundreds of Mbps for the short ranges [9]
 
-Long Range VLC is used for high rate communication between two fixed points over distances up to several kilometers. It is an efficient solution to bridge the gap between the end-user and the fiber optic infrastructure already in place, WLAN-to-WLAN connectivity in enterprise and campus environments, broadband access to remote or underserved areas, and wireless video surveillance/ monitoring.  They are also useful as redundant links in disaster situations because they are easy-to-install and re-deployable. Further details are in [11]. 
+Long Range VLC is used for the high rate communication between the two fixed points over distances up to several kilometers. It is an efficient solution to bridge the gap between the end-user and the fiber optic infrastructure already in place, WLAN-to-WLAN connectivity in enterprise and campus environments, broadband access to remote or underserved areas, and wireless video surveillance/ monitoring. They are also useful as redundant links in the cases of disasters because they are easy-to-install and re-deployable. Further details are in [11]. 
 
 ##Mechanical waves 
+
 ### Acoustic communication 
 
-Acoustic waves are used for underwater communication [10], and cover distance ranges up to several kilometers. However, this technology has minimal bandwidth available, low celerity, and large latencies. Data rates are limited to a few hundreds or thousands of kbps. 
+Acoustic waves are used for the underwater communication [10], and cover the distance ranges up to several kilometers. However, this technology has minimal bandwidth available, low celerity, and large latencies. Data rates are limited to a few hundreds or thousands of kbps. 
 
-Some researchers use acoustic waves for communication between devices and smartphones, using smartphone microphone as receiver [12]. 
+Some researchers use acoustic waves for communication between the devices and smartphones, using smartphone microphone as a receiver [12].
 
 ### Ultrasonic communication 
 
-Ultrasonic waves are traditionally used to measure distances and thickness. But researches are building communications systems, based on their usage [13], [14]. The usage of new graphene diaphragms for transmitting/receiving ultrasonic signals could stimulate further progress in that field  [15]. 
+Ultrasonic waves are traditionally used to measure the distance and thickness. But researches are building communications systems, based on their usage [13], [14]. The usage of new graphene diaphragms for transmitting/receiving ultrasonic signalscould stimulate the further progress in that field  [15]. 
 
-Note also that people didn’t hear ultrasonic waves. But high-intensity ultrasound could be destructive for human and even used as a weapon, sometimes lethal. 
+Please also note, that people didn’t hear ultrasonic waves. But the high-intensity ultrasound could be destructive for human and even used as a weapon, sometimes lethal.
 
 ## Other methods 
 
 ### Molecular communication 
 
-When devices are scaled down to the nanoscale level, new communication means are needed for them. Researches are inspired by the observation of the biological systems, in which communication is typically done through molecules. Feasibility studies show that such kind of communication has low energy consumption, low communication speed, and cause chemical reactions on the receiver side. The character of communications is stochastic. More details are in [16]. 
+When devices are scaled down to the nanoscale level, the new communication means are needed for them. Researches are inspired by the observation of the biological systems, in which communication is typically done through the molecules.Feasibility studies show that such kind of communication has low energy consumption, low communication speed, and causes chemical reactions on the receiver’s side. The character of communications is stochastic. More details are in [16].
 
 ## References 
 
