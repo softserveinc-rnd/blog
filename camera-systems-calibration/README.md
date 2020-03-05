@@ -1,25 +1,99 @@
-# Calibration different camera systems
+# Calibration different camera systems (in progress)
 
 ## Executive summary
-A vast amount of industries depend on high-quality images, ranging from entertaiment to AR/VR.  In order to obtain them, correctly working cameras are crucial. The process of adjusting camera parameters is called camera calibration. Usually cameras come with parameters predefined by manufacturer. However, environment conditions such as humidity highly influence camera lens, which introduces distortions to images. The goal of camera calibration is to solve such issues.
+Camera calibration is one of the primary steps in capturing photos needed for various computer vision problems, such as 3D reconstruction or object detection. In the process of camera calibration we obtain parameters required for correct image reconstruction. Usually cameras come with parameters predefined by manufacturer. However, environment conditions such as humidity highly influence camera lens, which introduces distortions to images. The goal of camera calibration is to solve such issues.
 Calibrating the camera means obtaining internal camera-specific parameters (intrinsics) and reltions of this camera to other cameras (extrinsics). Instrinsics include lens focal length and optical centers. 
  
  Calibration pipeline consists of two major steps: 
-1. Collecting photos of some pattern (commonly chessboard) from more than 5 different perspectives
+1. Collecting photos of reference grids with some pattern (commonly chessboard) from more than 5 different perspectives
 2. Applying algorithm, which obtains camera parameters
 
-We run our expreriments for different patterns and calibration algorithms and compare our results  with default camera parameters on metrics namely absolute error, reprojection eror, ADD MORE.
+In our experiments we use [ZED stereo camera](https://www.stereolabs.com/zed/) .  We run our expreriments for different patterns and calibration algorithms and compare our results  with default camera parameters on metrics namely absolute and relative errors, re-projection eror.
 ## Single camera calibration
 ### 1. Image collection
- Our initial setup is as follows: 1) we fix printed chessboard on the table and make it as smooth as possible 2) Under the vertical light we collect at least 15 photos from different views by moving the camera. We make photos in the way that chessboard takes more than 90% of the picture. 
+#### Setup 1
+ Our initial setup is as follows: 1) we fix printed chessboard on the table and make it as smooth as possible 2) Under the vertical light we collect at least 15 photos from different views by moving the camera. We make photos in the way that chessboard takes more than 90% of the picture.
+ ![ ](https://res.cloudinary.com/duewxx1op/image/upload/c_scale,w_300/v1583322194/chessboard_table_tyzufl.png  "Setup 1") 
+ 
+#### Setup 2
+In this setup instead of putting chessboard on a table we display it on the computer screen. Other conditions remain the same as in Experiment 1.
  
 ### 2. Calibration algorithm
 For every image we find chessboard and its internal corners on the image. Then for obtaining camera parameters we apply algorithm from OpenCV library. 
 
+We observed that board and corner detection algorithms are highly sensitive to illumination level and shades. Therefore one should carefully select position of the camera to minimize unpleasant effects.
+
+### 3. Results
+For comparison we use mean re-projection error, which is a common metric for camera calibration. Reprojection errors provide a qualitative measure of accuracy. A re-projection error is the distance between a pattern keypoint detected in a calibration image, and a corresponding world point projected into the same image. Errors for every image are averaged to get final result. Usually RMSE distance is applied. However in our experiments we use L2 distance, because we get relatively small values.
+
+We compare results obtained in both setups with parameters 1) predefined by ZED and 2) inferred with ZED calibration tool. Comparison results we show in Table . We observed that OpenCV calibration algorithm in both setups worked significantly better than ZED calibration tool. Note that ZED calibration was performed in the environment conditions (amount of light) not appropriate enough. However our setups share the same conditions. OpenCV calibration algorithm performed slightly better on Setup 2, which may be caused by several reasons. Firstly, chessboard on the screen is perfectly flat. Secondly, illumination of the board on screen is better. 
+
+| Methods | Mean re-projection error (px)|
+| ------------- |-------------|
+| Setup 1      | 0.0598 |
+| Setup 2      | 0.0379 |
+| Factory      | 2.4097 |
+| ZED calibrated      | 2.4636 |
+
+Table . Comparison of calibration results
+
+In Tables *-* we see how factory parameters and parameters inferred with ZED calibration differ from parameters obtained with OpenCV algorithm in both our Setups. As mean re-projection error is only slightly different in both factory-related methods errors in distortion intrinsics parameters are very similar.
+
+| Intrinsics | Factory  |ZED calibrated  |
+| ------------- |-------------| ---------|
+| fx      | 1.0746 | 0.9799 |
+| fy     | 0.9388      |   0.8440 |
+| cx |  2.3688    |   2.6880 |
+cy | 3.3163     |    2.5091 |
+
+Table 1. Relative errors of obtained with Setup 1 intrinsic parameters  (in percents).
+
+| Distortion parameters | Factory  |ZED calibrated  |
+| ------------- |-------------| ---------|
+| k1     | 0.1869 | 0.1841 |
+| k2     | 0.0338  |   0.0333 |
+p1 | 0.0009     |   - |
+p2 | 0.0010     |    - |
+k3 | 0.0129    |   - |
+
+Table 2. Absolute errors of distortion parameters obtained with Setup 1  (in **milimeters**).
+
+
+| Intrinsics | Factory  |ZED calibrated  |
+| ------------- |-------------| ---------|
+| fx      | 1.2570 | 1.1624 |
+| fy     | 1.2305      |   1.1360 |
+| cx |  2.1288    |   2.4488 |
+cy | 2.1984     |    1.4000 |
+
+Table 3. Relative errors of obtained with Setup 2 intrinsic parameters  (in percents)
+
+| Distortion parameters | Factory  |ZED calibrated  |
+| ------------- |-------------| ---------|
+| k1     | 0.1868 | 0.1841 |
+| k2     | 0.0696  |   0.0692 |
+p1 | 0.0006     |   - |
+p2 | 0.0010     |    - |
+k3 | 0.0314    |   - |
+
+Table 4. Absolute errors of distortion parameters obtained with Setup 2  (in **milimeters**).
+
 ## Stereo camera calibration
 
 ## Calibration camera-projector system
-Distance from camera to plane: ~35cm
-## Conclusions
+Before calibrating the system of camera and projector, camera should be calibrated to find corresponding intrinsics and distorion parameters. Then in the process of calibrating the system we find extrinsic parameters between camera and projector.
+Calibration of projector depends on photos of specific patterns as well. Usually they are vertical or horizontal black and white lines of different width.
+### 1. Image collection
+Our setup is as follows. Paper with chessboard printed on it is fixed horizontally on the wall.  In front of it we place a projector on the distance such that pattern we project matches printed chessboard. In our case this distance is 35cm. We minimize amount of light as much as possible. Experiments were conducted under small amount of natural light. We captured photos of patterns projected onto chessboard from different perspectives and angles the same as for single camera calibration
+resulting in at least 5 photos of each pattern. We had 40 pattens in total.
+![](https://res.cloudinary.com/duewxx1op/image/upload/c_scale,w_300/v1583411412/chessboard_wall_pygfat.jpg)  ![](https://res.cloudinary.com/duewxx1op/image/upload/c_scale,w_300/v1583411268/chessboard_wall_projector_rhgox5.jpg) 
 
+We observed that under specific angles white lines from the pattern become too bright, such that chessboard behind is not visible on the image. Black lines from pattern are not as dark as expected on the image. It is caused by high amount of light produced by projector. In order to get better samples projector should be the only source of light.
+
+### 2. Calibration algorithm
+
+### 3. Results
+
+
+## Conclusions
 ## References 
