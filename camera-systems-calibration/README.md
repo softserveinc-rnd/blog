@@ -3,7 +3,7 @@
 ## Executive summary
 Camera calibration is one of the primary steps in capturing photos needed for various computer vision problems, such as 3D reconstruction or object detection. In the process of camera calibration we obtain parameters required for correct image reconstruction. Usually cameras come with parameters predefined by manufacturer. However, environment conditions such as humidity highly influence camera lens, which introduces distortions to images. The goal of camera calibration is to solve such issues.
 Calibrating the camera means obtaining internal camera-specific parameters (intrinsics) and reltions of this camera to other cameras (extrinsics). Instrinsics include lens focal length and optical centers. 
- 
+
  Calibration pipeline consists of two major steps: 
 1. Collecting photos of reference grids with some pattern (commonly chessboard) from more than 5 different perspectives
 2. Applying algorithm, which obtains camera parameters
@@ -12,14 +12,14 @@ In our experiments we use [ZED stereo camera](https://www.stereolabs.com/zed/) .
 ## Single camera calibration
 ### 1. Image collection
 #### Setup 1
- Our initial setup is as follows: 1) we fix printed chessboard on the table and make it as smooth as possible 2) Under the vertical light we collect at least 15 photos from different views by moving the camera. We make photos in the way that chessboard takes more than 90% of the picture.
+ Our initial setup is as follows: 1) we fix printed 7x10 chessboard on the table and make it as smooth as possible 2) Under the vertical light we collect at least 15 photos from different views by moving the camera. We make photos in the way that chessboard takes more than 90% of the picture.
  ![ ](https://res.cloudinary.com/duewxx1op/image/upload/c_scale,w_300/v1583322194/chessboard_table_tyzufl.png  "Setup 1") 
- 
+
 #### Setup 2
 In this setup instead of putting chessboard on a table we display it on the computer screen. Other conditions remain the same as in Experiment 1.
- 
+
 ### 2. Calibration algorithm
-For every image we find chessboard and its internal corners on the image. Then for obtaining camera parameters we apply algorithm from OpenCV library. 
+For every image we find chessboard and its internal corners on the image (we use `cv2.findChessboardCorners()` for corner detection and `cv2.cornerSubPix()` to optimize results of previous function ). Then for obtaining camera parameters we apply algorithm from OpenCV library implemented in `cv2.calibrateCamera()` function. 
 
 We observed that board and corner detection algorithms are highly sensitive to illumination level and shades. Therefore one should carefully select position of the camera to minimize unpleasant effects.
 
@@ -83,14 +83,36 @@ Table 4. Absolute errors of distortion parameters obtained with Setup 2  (in **m
 ## Calibration camera-projector system
 Before calibrating the system of camera and projector, camera should be calibrated to find corresponding intrinsics and distorion parameters. Then in the process of calibrating the system we find extrinsic parameters between camera and projector.
 Calibration of projector depends on photos of specific patterns as well. Usually they are vertical or horizontal black and white lines of different width.
+
 ### 1. Image collection
-Our setup is as follows. Paper with chessboard printed on it is fixed horizontally on the wall.  In front of it we place a projector on the distance such that pattern we project matches printed chessboard. In our case this distance is 35cm. We minimize amount of light as much as possible. Experiments were conducted under small amount of natural light. We captured photos of patterns projected onto chessboard from different perspectives and angles the same as for single camera calibration
-resulting in at least 5 photos of each pattern. We had 40 pattens in total.
+Our setup is as follows. Reference grid (same as in single camera calibration) is fixed horizontally on the wall.  In front of it we place a projector on the distance such that pattern we project is not smaller than  reference grid.  We captured photos of patterns projected onto chessboard from different perspectives and angles similarly to single camera calibration. However, it is worth to mention that camera and projector were nearly in the same position with respect to each other. Such conditions are required to guarantee correct work of the algorithm.  
+
+We had 44 pattens in total, including white and black patterns. We selected 5 different perspectives: frontal, left and right turns.  Every pattern was captured from every perspective resulting in 220 photos in total. While capturing photos we minimize amount of light as much as possible. Experiments were conducted under small amount of natural light.
 ![](https://res.cloudinary.com/duewxx1op/image/upload/c_scale,w_300/v1583411412/chessboard_wall_pygfat.jpg)  ![](https://res.cloudinary.com/duewxx1op/image/upload/c_scale,w_300/v1583411268/chessboard_wall_projector_rhgox5.jpg) 
+
+Other from black and white patterns are vertical or horizontal parallel consecutive black and white lines of different step shown on the figures above. They are required for projector calibration. White pattern is used for camera calibration.
+
+
 
 We observed that under specific angles white lines from the pattern become too bright, such that chessboard behind is not visible on the image. Black lines from pattern are not as dark as expected on the image. It is caused by high amount of light produced by projector. In order to get better samples projector should be the only source of light.
 
 ### 2. Calibration algorithm
+
+There several ways to calibrate projector-camera system. Particularly they differ in the preprocessing steps, such as calibration of camera and projector beforehand. In our experiments do calibrate camera and projector before calibrating the system, because this approach is more reliable. 
+
+Therefore, the calibration algorithm includes 3 major steps
+
+1. Calibrate camera
+
+2. Calibrate projector
+
+3. Calibrate projector-camera stereo system
+
+   Step 1 is identical to calibration of single camera described in corresponding section. The intermediate step here is identifying chessboard internal corners (denote them as 'camera corners'). We use them for projector calibration.
+   
+   Step 2 involves identifying intrinsics, extrinsics and distortion parameters of a projector. Firstly we find the projection of camera corners onto projector patterns. To this end we calculate perspective transformation matrix using `cv2.findHomography()` . Finally obtained projector points are employed to perform projector calibration using the same algorithm as in step 1 implemented in `cv2.calibrateCamera()` function.
+   
+   In Step 3 we exploit results obtained on the previous steps, including camera corners and projector corners (i.e. chessboard corners on camera and projector image planes), both camera and projector intrinsics and distortion parameters, to calculate refined values of camera and projector intrinsics and distortion parameters as well as rotation and translation matrices between camera and projector coordinate systems. For that we use algorithm from OpenCV implemented in function `cv2.stereoCalibrate()`.  
 
 ### 3. Results
 
