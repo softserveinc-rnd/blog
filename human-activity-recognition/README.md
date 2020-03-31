@@ -4,40 +4,40 @@ The implementation of IoT, smart cities, and smart buildings all require informa
 
 ## Sensor-based taxonomies
 
-As presented by Lara and Labrador, Zhaojie Ju, et al., and others, different taxonomies for Human Activity Recognition, depending on usage of sensor types, are proposed by experts. The most relevant universal taxonomies are proposed in works by Ma Y. et al. and Andreas Bulling et al.. Both types are sensor-based.  
+As presented by Lara and Labrador, Zhaojie Ju, et al., and others [1], [2] , [6], [16] different taxonomies for Human Activity Recognition, depending on usage of sensor types, are proposed by experts. The most relevant universal taxonomies are proposed in works by Ma Y. et al. and Andreas Bulling et al. [6], [16]. Both types are sensor-based.  
 
 Three groups, called modalities, divide all sensors. The first group is wearable or body-worn sensors. These are worn by humans and capture body movements. Examples of such sensors include accelerometers, gyroscopes, and magnetometers embedded into bands, watches, smartphones, closes, and more body-type devices.  
 
-The second group of modalities consists of the object sensors. These sensors are embedded into different objects, which are related to various human activities. RFID-based, accelerometers, integrated into a coffee cup, etc. are examples of such sensors.  
+The second group of modalities consists of the object sensors. These sensors are embedded into different objects, which are related to various human activities. RFID-based [7], accelerometers, integrated into a coffee cup, etc. are examples of such sensors.  
 
-And, the third group are named ambient sensors. Often this group contains different sensors embedded into the humans environment. These types often include microphones, ultrasonic and UWB radars, Wi-Fi, Bluetooth, video, infrared and depth cameras, capacitance sensors, and others, as presented by Bian S. et al. and Chen D et al..   
+And, the third group are named ambient sensors. Often this group contains different sensors embedded into the humans environment. These types often include microphones [17], ultrasonic and UWB radars [18], Wi-Fi [16], Bluetooth, video [2], infrared and depth cameras [9], capacitance sensors [8],[19], and others, as presented by Bian S. et al. and Chen D et al..   
 
 ## The correct sensor for the required activity  
 
 Wearable sensors are useful for the detection of daily living as well as fitness activities. More complex operations that include moving, manipulation, or interaction with particular objects in the environment, are better captured by the object sensors. However, for activities that require collaboration between humans, communication with different devices is better captured by the ambient sensors.   
 
-Portions of wearable sensor research are dedicated to the correct placement of the sensor on the human body. Researchers concluded that placing sensors on the dominant wrist, waist, or the dominant hip pocket receives the best results for the body movement capturing. On the other hand, object and ambient sensors should be integrated into environments in a non-invasive way to collect data naturally and not disturb humans. During the preprocessing, sensor signals are usually cut to form sliding windows. Moreover, the signals from different sensors, different sensor types, or even different sensor axes, are treated as separate channels. This approach could enhance the next signal classification step.    
+Portions of wearable sensor research [4] are dedicated to the correct placement of the sensor on the human body. Researchers concluded that placing sensors on the dominant wrist, waist, or the dominant hip pocket receives the best results for the body movement capturing. On the other hand, object and ambient sensors should be integrated into environments in a non-invasive way to collect data naturally and not disturb humans. During the preprocessing, sensor signals are usually cut to form sliding windows. Moreover, the signals from different sensors, different sensor types, or even different sensor axes, are treated as separate channels. This approach could enhance the next signal classification step.    
 
 
 ## Sensor data processing 
 
-The typical sensor processing flow contains data acquisition, signal processing and segmentation, feature extraction and selection, training and classification steps. A detailed description of features used for activity classification, as well as classification algorithms, was made in this report. All the signal features are divided into time-domain (mean, standard deviation, variance, interquartile range (IQR), mean absolute deviation (MAD), the correlation between axes, entropy, and kurtosis), frequency domain (Fourier Transform (FT) and Discrete Cosine Transform (DCT)). Additionally, the Principal Component Analysis (PCA), Linear Discriminant Analysis (LDA), Autoregressive Model (AR), and HAAR filters are used for feature selection and construction.   
+The typical sensor processing flow contains data acquisition, signal processing and segmentation, feature extraction and selection, training and classification steps [5]. A detailed description of features used for activity classification, as well as classification algorithms, was made in this report [6]. All the signal features are divided into time-domain (mean, standard deviation, variance, interquartile range (IQR), mean absolute deviation (MAD), the correlation between axes, entropy, and kurtosis), frequency domain (Fourier Transform (FT) and Discrete Cosine Transform (DCT)). Additionally, the Principal Component Analysis (PCA), Linear Discriminant Analysis (LDA), Autoregressive Model (AR), and HAAR filters are used for feature selection and construction.   
 
-Accuracy of different training and classification algorithms with existing working systems were evaluated by researchers. These vary from 70% to almost 98%. Researchers also noticed that person-dependent algorithms provide better results than person-independent methods, just as the usage of accelerators is better than the usage of gyroscopes. 
+Accuracy of different training and classification algorithms with existing working systems were evaluated by researchers [4], [6]. These vary from 70% to almost 98%. Researchers also noticed [5] that person-dependent algorithms provide better results than person-independent methods, just as the usage of accelerators is better than the usage of gyroscopes. 
 
 ## Deep learning techniques for recognition improvement 
 
-The usage of machine learning (ML) and deep learning techniques is impossible without the existence of datasets dedicated to human action and activity recognition. Many of these examples are described here. 
+The usage of machine learning (ML) and deep learning techniques is impossible without the existence of datasets dedicated to human action and activity recognition. Many of these examples are described here [3]. 
 
- Other publications, including those by Cook D et al., Yang J., et al., Ronao and Cho, Hammerla N. et al., Ordóñez F. and Roggen D., and Wang J. et al. are dedicated to using different deep learning techniques directed to the improvement of the activity recognition. Survey and work contain recommendations for using RNN and LSTM architectures for short-term and CNN for long-term repetitive activities' recognition.  In those works, it was also recorded that CNN has possibilities to fuse sensor channels naturally. Applying CNN, it is possible to increase F1 scores by 15% fusing accelerometers and gyroscopes. An increase of 20% is seen when fusing accelerometers, gyroscopes, and magnetic sensors. These results demonstrate that the convolutional layers can extract features from sensor signals of different modalities without ad hoc preprocessing 
+ Other publications, including those by Cook D et al., Yang J., et al., Ronao and Cho, Hammerla N. et al., Ordóñez F. and Roggen D., and Wang J. et al. [10] - [15] are dedicated to using different deep learning techniques directed to the improvement of the activity recognition. Survey [15] and work [14] contain recommendations for using RNN and LSTM architectures for short-term and CNN for long-term repetitive activities' recognition.  In those works, it was also recorded that CNN has possibilities to fuse sensor channels naturally. Applying CNN, it is possible to increase F1 scores by 15% fusing accelerometers and gyroscopes. An increase of 20% is seen when fusing accelerometers, gyroscopes, and magnetic sensors. These results demonstrate that the convolutional layers can extract features from sensor signals of different modalities without ad hoc preprocessing 
 
 ## In conclusion 
 
 SoftServe experts recommend using wearable sensors for the activities which are related to human moving. Object sensors should be used when capturing human interaction with specific objects is needed. Ambient sensors are sufficient to capture both kinds of activities but may suffer from shadowing and blindness.  The use of ambient sensors for recognition activities in closed smart environments, as well as sensor fusion approaches to compensate for their technical debts, is the most advanced solution and proposal. Moreover, a modern approach to sensor fusion involves using convolutional neural networks to complete the tasks automatically during networks training. To learn more, contact SoftServe today. 
 
  ## References
- 
- [1] Vrigkas M., Nikou C., Kakadiaris I. A review of human activity recognition methods. Frontiers Robotics AI. Publisher: Frontiers Media S.A., 2015 vol: 2 (NOV) 
+
+[1] Vrigkas M., Nikou C., Kakadiaris I. A review of human activity recognition methods. Frontiers Robotics AI. Publisher: Frontiers Media S.A., 2015 vol: 2 (NOV) 
 
 [2] Ke S., Thuc H., Lee Y., Hwang J., Yoo J., Choi K. A review on video-based human activity recognition. Computers. Publisher: MDPI AG, 2013 vol: 2 (2) pp: 88-131 
 
