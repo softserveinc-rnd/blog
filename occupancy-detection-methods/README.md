@@ -72,13 +72,159 @@ Usage of IR Cameras instead of RGB ones allows fixing some privacy issues. It is
 
 Sensor construction, recommendations of placement were described in work [18] 
 
+
+<table>
+	<thead>
+		<tr>
+			<td>Pros.</td>
+			<td>Cons.</td>
+			<td>Use</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> 
+			<p>
+	        <ul>
+	        	<li> The IR video stream does not depend on lighting conditions and 
+	            </li>
+	        	<li>     allows tracking people's temperature, which is a useful feature to prevent pandemics. 
+	        	</li>
+	        </ul>		
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						    Prices on IR cameras are significantly higher than on RGB cameras. 
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People counting 
+					</li>
+					<li>
+					People presence detection
+					</li>
+					<li>
+					Activities detection
+					</li>
+					<li>
+					People temperature monitoring
+					</li>
+				</ul>		
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
 ## PIR Sensors
 
 That type of sensors is commonly used for occupancy detection in alarms and light control systems. They are sensitive only to changes of the infrared radiation (human motion, for example). 
 
+
+<table>
+	<thead>
+		<tr>
+			<td>Pros.</td>
+			<td>Cons.</td>
+			<td>Use</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> 
+			<p>
+	        <ul>
+	        	<li>     Sensors are cheap, 
+	            </li>
+	        	<li> have a small form factor and low power consumption.
+	        	</li>
+	        	<li> PIR sensors provide only binary information about occupancy that makes them the best sensors from a privacy point of view.
+	        	</li>
+	        </ul>		
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						Suitable exclusively for occupancy detection.
+					</li>
+					<li>
+					Require a direct line of sight between a sensor and an occupant.  
+					</li>
+					<li>
+					Not sensitive if people do not move (e.g. continuously sitting or standing).
+					</li>
+					<li>
+					Are influenced by thermal currents - hot coffee or tea, heating, ventilation or air conditioning systems, pets. 
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People presence detection  
+					</li>					
+				</ul>		
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
 ## Array of IR sensors
 
 Placing several IR sensors in the room allow us to capture its temperature pattern and detect changes due to the quantity of people's presence and their activity.   In work [3], authors placed IR sensors at the doorways for counting the number of people inside rooms. 
+
+
+<table>
+	<thead>
+		<tr>
+			<td>Pros.</td>
+			<td>Cons.</td>
+			<td>Use</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> 
+			<p>
+	        <ul>
+	        	<li> Authors of work [3] claim that their approach works without additional learning.
+	            </li>
+	        	<li> Moreover, IR sensors allow detecting skin temperature that is handy information, taking into account the recent pandemic risks.
+	        	</li>
+	        </ul>		
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						It is hard to count people when several persons simultaneously enter a room through the same door.   
+					</li>
+					<li>
+					    Thermal imagers are very prone to errors in longer distances, which makes those solutions inapplicable in wider doors. 
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People counting in small rooms  
+					</li>
+				</ul>		
+			</td>
+		</tr>
+	</tbody>
+</table>
+
 
 ## Break-beam sensors 
 
@@ -86,11 +232,103 @@ If the IR sensor is a passive solution, break beam sensor is an active one. It c
 
 http://www.sdinternational.nl/downloads/leaflets/People%20Counter%20-%20Display.pdf 
 
+
+<table>
+	<thead>
+		<tr>
+			<td>Pros.</td>
+			<td>Cons.</td>
+			<td>Use</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> 
+			<p>
+	        <ul>
+	        	<li>Cheapest solution on the market. 
+	            </li>
+	        	<li> Placing two pairs of sensors allows to detect movements and their direction as well. 
+	        	</li>
+	        </ul>		
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						Sensors should be mounted on a particular height (120 – 140 mm from the ground). On a lower distance, they count people's legs.
+					</li>
+					<li>
+					They can't count people simultaneously entering the room,
+					</li>
+					<li>
+					Prone to long distances between transmitter and receiver. 
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People counting in small rooms  
+					</li>					
+				</ul>		
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
 ## Ultrasonic sensors 
 
 Ultrasonic sensors use simple radar idea – ultrasonic transmitter generates ultrasonic chirps that are reflected from human bodies. The microphone receives a reflected signal, and after signal analysis, people can be detected and counted. Schematic system design is shown in the picture below, taken from [5], which describes the implementation of one such system.  
 
-| | Maximun capacity | Average error | Error/Max Capacity (%) |
+
+<table>
+	<thead>
+		<tr>
+			<td>Pros.</td>
+			<td>Cons.</td>
+			<td>Use</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> 
+			<p>
+	        <ul>
+	        	<li> Ultrasound chirps are silent and safe for humans.
+	            </li>
+	        </ul>		
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						Are not pet-friendly.
+					</li>
+					<li>
+					Require the system calibration before usage (an empty room measurement and measurement with a single person present at least).
+					</li>					
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People counting 
+					</li>
+					<li>
+					People presence detection
+					</li>					
+				</ul>		
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+|  | Maximun capacity |  Average error | Error/Max Capacity (%)  |
 | ------------------------------------------------------------------------------------------ |
 | Small room | 8 | 0.61 | 7.6 |
 | Medium room | 30 | 1.6 | 5.3 |
@@ -102,11 +340,103 @@ UWB radars emit radio waves and analyze the reflected signal. Modern DSP and ML 
 
 Novelda develops UWB sensors for human presence detection in indoor applications and smart building systems. As an example could be mentioned X4M300 sensor. See documentation in [6] and demonstration on video [7]. The similar solution also proposes an Italian company ARIA sensing [8] 
 
+
+<table>
+	<thead>
+		<tr>
+			<td>Pros.</td>
+			<td>Cons.</td>
+			<td>Use</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> 
+			<p>
+	        <ul>
+	        	<li> Progress in building of single-chip radars during the last 10 years dramatically lowered prices, and now UWB radars are cheap, small, and highly technological devices. 
+	            </li>
+	        </ul>		
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						It could interfere with Wi-Fi, Bluetooth, ZigBee, and other customer devices and cause interruptions in their functioning. 
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People counting 
+					</li>
+					<li>
+					People presence detection
+					</li>
+				</ul>		
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
 ## Wi-Fi
 
 Technically, Wi-Fi sensing is the implementation of UWB radar technology. The main advantage is that Wi-Fi infrastructure is already present in modern buildings and offices and could be reused for occupancy detection. 
 
 Moreover, Wi-Fi sensing could be realized in both the terminal and non-terminal way. The RF signal transmitted by the user's Wi-Fi terminal (smartphone or any gadget in pocket) is analyzed in the first option. The second implementation doesn't rely on user terminals but requires the presence of at least two Wi-Fi devices (e.g. a notebook and a Wi-Fi router). One device is used as a signal transmitter, the second – as a receiver. Early Wi-Fi sensing implementations were based on RSSI measurements when the last implementations on CSI and could use AoA and ToF methods on several signal frequencies. Authors of work [9] claim that Wi-Fi is already successfully used for detection, recognition, and estimation tasks, providing examples of usage.
+
+
+<table>
+	<thead>
+		<tr>
+			<td>Pros.</td>
+			<td>Cons.</td>
+			<td>Use</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> 
+			<p>
+	        <ul>
+	        	<li>Re-usage of existing wireless Internet access infrastructure as an ambient sensor.
+	            </li>
+	        	<li>Have two variants of implementation – terminal, non-terminal. 
+	        	</li>
+	        	<li>
+	        	Can be used for recognition and estimation tasks as well. Wi-Fi chip vendors and new Wi-Fi standards support signal measurements that simplify realization. 
+	        	</li>
+	        </ul>		
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						    ML and AI methods used for measurement analysis require the high-performance hardware. 
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People counting 
+					</li>
+					<li>
+					People detection
+					</li>
+					<li>
+					People recognition
+					</li>
+				</ul>		
+			</td>
+		</tr>
+	</tbody>
+</table>
+
 
 ## Microphone
 
@@ -114,27 +444,290 @@ The microphone captures the noise produced by people and their activities in the
 
 Project Ubicoustics is the best jaw-dropping example of microphone usage. Additional information available on the project page [11], video presentation can be found here [12]. 
 
+
+<table>
+	<thead>
+		<tr>
+			<td>Pros.</td>
+			<td>Cons.</td>
+			<td>Use</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> 
+			<p>
+	        <ul>
+	        	<li>    A lot of devices in the room have microphones already installed, thus no additional devices are required   
+	            </li>	        	
+	        </ul>		
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						    Analysis of data from microphones may be considered as eavesdropping.  
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People counting 
+					</li>
+					<li>
+					People presence detection
+					</li>
+					<li>
+					People recognition via voice analysis
+					</li>
+				</ul>		
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
 ## Capacitance sensors
 
 Modern painting materials can convert the whole wall or even room into a capacitance sensor or electromagnetic noise detector. It allows detecting peoples near the wall. 
 
 Project Wall++ is the best demonstration of possibilities and capacitance of sensors. Additional information in article [12] and video demonstration [13] 
 
+
+<table>
+	<thead>
+		<tr>
+			<td>Pros.</td>
+			<td>Cons.</td>
+			<td>Use</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> 
+			<p>
+	        <ul>
+	        	<li>Almost any room can be converted into a sensor by merely repainting the walls. 
+	            </li>
+	        </ul>		
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						The sensitivity of such sensor is better when people are close to the wall or have some sources on electromagnetic noise in pocket 
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People counting 
+					</li>
+					<li>
+					People presence detection
+					</li>
+					<li>
+					Activities recognition
+					</li>
+				</ul>		
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
 ## CO2 sensors 
 
 A person releases a certain amount of carbon dioxide while breathing which allows to use CO2 sensors for occupancy detection. This approach was analyzed in work [14] and it was noticed that CO2 data had to undergo some processing to find the most meaningful way to bring valuable information. In work [15] it was shown that CO2 sensors need some time to predict the number of people in the room correctly, and more sophisticated algorithms (controllers) give better estimation results. The figure below (taken from work [15]) demonstrates measured CO2 concentration in time when a different number of people are present in the room and ventilation flow rate was set to 3 air changes per hour (ACH).   
+
+
+<table>
+	<thead>
+		<tr>
+			<td>Pros.</td>
+			<td>Cons.</td>
+			<td>Use</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> 
+			<p>
+	        <ul>
+	        	<li>     CO2 sensors are embedded in modern air conditioning systems and could be reused for occupancy detection as well. 
+	            </li>
+	        </ul>		
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						CO2 sensors are inertial and need some time (about 1-2 min) to show the correct results. Ventilation systems were built to decrease the level of CO2 in the building/room and should be taken into account during the analysis of CO2 measurement results. 
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People counting 
+					</li>
+					<li>
+					People presence detection
+					</li>
+				</ul>		
+			</td>
+		</tr>
+	</tbody>
+</table>
+
 
 ## Smart meters
 
 Home's pattern of electricity usage generally changes when occupants are present due to their interaction with electrical loads. An example of such an approach is described in [16] 
 
+
+<table>
+	<thead>
+		<tr>
+			<td>Pros.</td>
+			<td>Cons.</td>
+			<td>Use</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> 
+			<p>
+	        <ul>
+	        	<li>    Existent meters infrastructure could be reused 
+	            </li>
+	        </ul>		
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						Insensitive, when people don’t use electricity or some other goods 
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People presence detection
+					</li>
+					<li>
+					Estimation of people quantity in building 
+					</li>
+				</ul>		
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
 ## Pressure sensors
 
 Covering the floor by pressure sensors is also the right solution for occupancy detection. It is enough to have several sensors near the doors for people counting solutions when people's location solutions require covering all floor by sensors tiles. The usage of sensors pairs allows detecting moving direction as well as in case of break beam pair of sensors.  Descriptions of proposed solutions were found only in works about person identification by walking style.  
 
+
+<table>
+	<thead>
+		<tr>
+			<td>Pros.</td>
+			<td>Cons.</td>
+			<td>Use</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> 
+			<p>
+	        <ul>
+	        	<li> Pressure sensors are chip enough and reliable devices.
+	            </li>
+	        	<li>Their construction was improved and tested in digital weights scales. 
+	        	</li>
+	        </ul>		
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						    Require additional changes in floor construction and additional wiring (or wireless solution) to sensor connection.  
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People counting 
+					</li>
+					<li>
+					People presence detection
+					</li>
+					<li>
+					People location. 
+					</li>
+				</ul>		
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
 ## Turnstile counters
 
 Turnstiles are popular solution for people access control for stadiums, amusement parks, mass transit stations, office lobbies, airports, ski resorts, factories, power plants, etc. But they can be also placed near the room entrance or entrance to specific building area and used for people counting.  
+
+
+<table>
+	<thead>
+		<tr>
+			<td>Pros.</td>
+			<td>Cons.</td>
+			<td>Use</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> 
+			<p>
+	        <ul>
+	        	<li> It is a straightforward solution for people counting and access restriction
+	            </li>
+	        </ul>		
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						Turnstiles occupy additional space in a room and slowly speed down people's flow.
+					</li>
+					<li>
+					Persons with disabilities may have difficulties using turnstiles 
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People counting 
+					</li>
+				</ul>		
+			</td>
+		</tr>
+	</tbody>
+</table>
+
 
 ## Summary
 
