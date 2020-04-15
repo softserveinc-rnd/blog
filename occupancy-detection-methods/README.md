@@ -29,10 +29,11 @@ https://www.analog.com/en/design-center/landing-pages/002/apm/vision-based-occup
 			<td> 
 			<p>The most popular solution because of
 	        <ul>
-	        	<li> recent enormous progress in image/video processing and computer vision,  
+	        	<li> recent enormous progress in image/video processing and computer vision,
+	            </li>
 	        	<li> as well as lowering of prices on HD cameras.
-	        </ul>
-			
+	        	</li>
+	        </ul>		
 			</td>
 			<td></td>
 			<td></td>
