@@ -17,3 +17,5 @@
 [Non-Contact Heart Rate Measurement Methods](heart-rate)
 
 [Approaches to Human Activity Recognition](human-activity-recognition)
+
+[Review of Occupancy Detection Methods](occupancy-detection-methods)
