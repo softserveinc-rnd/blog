@@ -11,10 +11,6 @@ For example, Analog Devices has developed a low cost, low power embedded compute
 https://www.analog.com/en/design-center/landing-pages/002/apm/vision-based-occupancy-sensing-solutions.html# 
 
 
-| Pros. | Cons. | Use |
-| -------- |--------- |-------------- |
-| The most popular solution because of <p> *recent enormous progress in image/video processing and computer vision, <p> *as well as lowering of prices on HD cameras.  | | |
-| | | |
 
 <table>
 	<thead>
@@ -35,8 +31,37 @@ https://www.analog.com/en/design-center/landing-pages/002/apm/vision-based-occup
 	        	</li>
 	        </ul>		
 			</td>
-			<td></td>
-			<td></td>
+			<td>
+				<p>
+				<ul>
+					<li>
+						The quality of the video stream depends on light conditions.
+					</li>
+					<li>
+					People usually change their behavior in the presence of cameras, as they fear of surveilling.
+					</li>
+					<li>
+					Video stream or images could be easily used for user identification, privacy violation.
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+				<ul>
+					<li>
+					People counting 
+					</li>
+					<li>
+					People presence detection
+					</li>
+					<li>
+					Activities detection
+					</li>
+					<li>
+					Surveillance
+					</li>
+				</ul>		
+			</td>
 		</tr>
 	</tbody>
 </table>
