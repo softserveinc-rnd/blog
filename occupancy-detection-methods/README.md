@@ -328,11 +328,38 @@ Ultrasonic sensors use simple radar idea – ultrasonic transmitter generates ul
 </table>
 
 
-|  | Maximun capacity |  Average error | Error/Max Capacity (%)  |
-| ------------------------------------------------------------------------------------------ |
-| Small room | 8 | 0.61 | 7.6 |
-| Medium room | 30 | 1.6 | 5.3 |
-| Large room | 150 | 2.6 | 1.7 |
+
+<table>
+	<thead>
+		<tr>
+			<td></td>
+			<td>Maximum Capacity </td>
+			<td>Average Error</td>
+			<td>Error / Max Capacity (%) </td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Small room</td>
+			<td>8</td>
+			<td>0.61</td>
+			<td>7.6</td>
+		</tr>	
+		<tr>
+			<td>Mediom room</td>
+			<td>30</td>
+			<td>1.6</td>
+			<td>5.3</td>
+		</tr>	
+		<tr>
+			<td>Small room</td>
+			<td>150</td>
+			<td>2.6</td>
+			<td>1.7</td>
+		</tr>		
+	</tbody>
+</table>
+
 
 ## UWB radars 
 
