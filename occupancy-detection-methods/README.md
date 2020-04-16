@@ -6,9 +6,18 @@ The implementation of smart cities, smart buildings, and other smart strategies 
 
 Most buildings entrance, territories near it and some critical infrastructure are covered by video cameras and office guards are familiar with such popular devices. Such infrastructure could be widened and used for occupancy detection. 
 
-For example, Analog Devices has developed a low cost, low power embedded computer vision platform, named  Blackfin®, that could be used for occupancy detection. 
+For example, Analog Devices has developed a low cost, low power embedded computer vision platform, named  Blackfin®, that could be used for occupancy detection[2]. 
 
-https://www.analog.com/en/design-center/landing-pages/002/apm/vision-based-occupancy-sensing-solutions.html# 
+
+
+![Figure 1. Illustration of AMD solution on Blackfin (R) platform (the image was taken from source 2)](img/occupancy-detection-figure-1.png)
+
+*Figure 1. Illustration of AMD solution on Blackfin (R) platform (the image was taken from [2])*
+
+![Figure 2. Camera sensor (the image was taken from source 2)](img/occupancy-detection-figure-2.png)
+
+*Figure 2. Camera sensor (the image was taken from [2])*
+
 
 
 
@@ -283,6 +292,10 @@ http://www.sdinternational.nl/downloads/leaflets/People%20Counter%20-%20Display.
 
 Ultrasonic sensors use simple radar idea – ultrasonic transmitter generates ultrasonic chirps that are reflected from human bodies. The microphone receives a reflected signal, and after signal analysis, people can be detected and counted. Schematic system design is shown in the picture below, taken from [5], which describes the implementation of one such system.  
 
+![Figure 3. Ultrasonic system design  (the image was taken from source 5)](img/occupancy-detection-figure-3.png)
+
+*Figure 3. Ultrasonic system design  (the image was taken from [5])*
+
 
 <table>
 	<thead>
@@ -346,7 +359,7 @@ Ultrasonic sensors use simple radar idea – ultrasonic transmitter generates ul
 			<td>7.6</td>
 		</tr>	
 		<tr>
-			<td>Mediom room</td>
+			<td>Medium room</td>
 			<td>30</td>
 			<td>1.6</td>
 			<td>5.3</td>
@@ -570,6 +583,10 @@ Project Wall++ is the best demonstration of possibilities and capacitance of sen
 ## CO2 sensors 
 
 A person releases a certain amount of carbon dioxide while breathing which allows to use CO2 sensors for occupancy detection. This approach was analyzed in work [14] and it was noticed that CO2 data had to undergo some processing to find the most meaningful way to bring valuable information. In work [15] it was shown that CO2 sensors need some time to predict the number of people in the room correctly, and more sophisticated algorithms (controllers) give better estimation results. The figure below (taken from work [15]) demonstrates measured CO2 concentration in time when a different number of people are present in the room and ventilation flow rate was set to 3 air changes per hour (ACH).   
+
+![Figure 4. CO2 concentration vs time  (the image was taken from source 15)](img/occupancy-detection-figure-4.png)
+
+*Figure 4. CO2 concentration vs time  (the image was taken from [15])*
 
 
 <table>
