@@ -17,3 +17,7 @@
 [Non-Contact Heart Rate Measurement Methods](heart-rate)
 
 [Approaches to Human Activity Recognition](human-activity-recognition)
+
+[Zephyr RTOS: Introduction](Zephyr_RTOS/Zephyr_intro.md)
+
+[Zephyr RTOS: Application development](Zephyr_app/Zephyr_app_dev.md)
