@@ -23,24 +23,24 @@ Generally, the choice of an embedded OS heavily depends on the specific use case
 
 ### What makes Zephyr OS unique as compared to other OS?
 
-1. Supported boards
+1. **Supported boards**
 	At the moment this blog is written several boards supported by Zephyr were around 170, much more than any another embedded OS has. Why is it important? Because it is very convenient. If due to some reasons decision is made to move to another hardware device the one thing to do (at least theoretically) is to inform Zephyr compiler for which board the code has to be compiled. Otherwise, without embedded OS supporting multiple boards, it is just the start of a painful process of getting familiar with board specifics, OS specifics, building toolchain, IDE etc. Thus, Zephyr essentially reduces time and efforts while moving to another board.
 	
-2. Scalability
+2. **Scalability**
 	Zephyr is a highly configurable and modular OS that implements memory protection (even for platforms without an MMU/MPU). It uses Device Tree Support (DTS) only during compile time. Powerful configuration tool allows flexible inclusion of only those features which are needed in a specific application. Memory footprint can be as low as 8k.
 	The other specific feature of Zephyr is that it has only one address space. It means that the application code and the kernel are combined in the same binary compilation. 
 	
-3. Build toolchain
+3. **Build toolchain**
 	Being intrinsically cross-platform project, Zephyr naturally uses the CMake build system. It also extensively uses a command-line tool named ***west*** [[Ref]](https://docs.zephyrproject.org/latest/guides/west/index.html). West is used for building, flashing and debugging applications as well as Zephyr repository manager.
 	In general, application configuration step is rather complicated in Zephyr. It extensively uses multi-level hierarchical configuration approach. [Here](https://docs.zephyrproject.org/latest/guides/build/index.html) is the link to the configuration build overview from the official Zephyr documentation page. It will be considered in more details in the next blog. For now, it’s worth stating that it includes Device Tree Compilation step resulting in the generation of application-specific header files – user need not writing header file manually.
 	
-4.  Communication interfaces and device drivers
+4.  **Communication interfaces and device drivers**
 	Zephyr support presently includes Bluetooth, Bluetooth LE 5.0, Ethernet, 802.15.4, Wi-Fi, IPv4/IPv6, 6LoWPAN, Thread, and NFC. 
 	
-5. Sensor support
+5. **Sensor support**
 	Expectedly, Zephyr has great sensors support with a high level of abstraction. The process goes smoothly during enabling sensor which is already supported by Zephyr. List of supported boards and sensors is very rich. However,  if a new sensor is to be enabled on a custom board, the process turns out to be a little complicated. An issue of implementing new sensor support on Zephyr will be addressed in detail in the next blog.
 	
-6. Zephyr support and updates.
+6. **Zephyr support and updates.**
 	Zephyr OS has a great SDK and is very well documented. It is permanently developing project, and new releases are issued quite frequently. The scope of the project is very wide so that along with rather frequent updates, it is a separate task to track all changes and comments. Moreover, sometimes application development can be stuck for an indefinite. Authors personally experienced this when at some time started observing unexpected device resets. Hours were spent for debugging and naturally, reasons for the problem were first searched in application code. However, after a couple of weeks of debugging, the reason was localized to be in Bluetooth controller side part. Only at that moment decision was made to update Zephyr to the newest version. And voila – resets magically disappeared and the problem was solved.
 	
 ### General conclusion
