@@ -2,6 +2,8 @@
 
 [OpenCL Performance on FPGA and GPU](opencl-fpga-gpu)
 
+[FPGA Convolutional Neural Networcs acceleration](fpga-cnn)
+
 [Movidius Performance](movidius)
 
 [Google TPU Performance](tpu)
