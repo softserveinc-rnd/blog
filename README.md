@@ -17,3 +17,14 @@
 [Non-Contact Heart Rate Measurement Methods](heart-rate)
 
 [Wireless Communication Between Devices ](wireless-communication)
+
+[Approaches to Human Activity Recognition](human-activity-recognition)
+
+[Review of Occupancy Detection Methods](occupancy-detection-methods)
+
+[Calibration Camera Systems](camera-systems-calibration)
+
+[Zephyr RTOS: Introduction](Zephyr_RTOS/Zephyr_intro.md)
+
+[Zephyr RTOS: Application development](Zephyr_app/Zephyr_app_dev.md)
+
