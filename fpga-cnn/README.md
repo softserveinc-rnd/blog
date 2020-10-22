@@ -9,7 +9,7 @@ That is the reason why concurrent approaches become so popular - it is easy to m
 **FPGA** - Field Programmable Gate Array, one more integral circuit, projected to be reconfigured after manufacturing. Always is used for ASIC's (Application Specific Integrated Circuit) prototyping, but also it is a powerful platform for making own circuits [[Ref](https://numato.com/blog/differences-between-fpga-and-asics/#what-is-asic)]. The main pros of FPGA's are creating parallel processing in terms of DSP, own pipelines and reconfigurable logic.
 
 ### What is CNN?
-**CNN** - Convolutional Neural Network, also known as ConvNet. It is a class of Deep Neural Networks, where primary (the most expensive) operation is Convolution. It is trendy in Image and Video processing for recognition classification and analysis problems. Also can be successfully used for time series analysis/predictions and natural language processing.  **Convolution** is an operation on functions, that express, how one modifies the shape of another one [[Ref](https://en.wikipedia.org/wiki/Convolution#:~:text=In%20mathematics%20(in%20particular%2C%20functional,the%20process%20of%20computing%20it.)].
+**CNN** - Convolutional Neural Network, also known as ConvNet. It is a class of Deep Neural Networks, where primary (the most expensive) operation is Convolution. It is trendy in Image and Video processing for recognition classification and analysis problems. Also can be successfully used for time series analysis/predictions and natural language processing.  **Convolution** is an operation on functions, that express, how one modifies the shape of another one [[Ref](https://en.wikipedia.org/wiki/Convolution)].
 <img src="images/conv.jpg">
 
 ## Solutions
@@ -21,7 +21,7 @@ Terasic boards are the most popular FPGA's in the world, so if somebody has ever
 
 #### Mipsology
 <img src="images/mipsology200x200.png" />
-Mipsology product called **ZEBRA** - a deep learning compute engine for neural network interface [[Ref](https://mipsology.com/)]. They promise that if the network was trained in any method, it could be run on CPU, GPU and FPGA with zero efforts without any changes inside the neural network and training process, what is more, it will be faster then before [[Ref](https://www.xilinx.com/video/events/mipsology-demonstrates-zebra.html)]
+Mipsology product called ***Zebra***- a deep learning compute engine for neural network interface [[Ref](https://mipsology.com/)]. They promise that if the network was trained in any method, it could be run on CPU, GPU and FPGA with zero efforts without any changes inside the neural network and training process, what is more, it will be faster then before [[Ref](https://www.xilinx.com/video/events/mipsology-demonstrates-zebra.html)]
 
 #### Vitis AI
 Vitis - SDK from Xilinx. More info [here](https://www.xilinx.com/products/design-tools/vitis.html). <br>
