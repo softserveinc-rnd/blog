@@ -19,13 +19,10 @@ So let us make a fast overview of the most popular approaches to run and acceler
 Terasic boards are the most popular FPGA's in the world, so if somebody has ever worked with FPGA, most likely he deals with Intel Terasic's chips, such as Cyclone or Stratix. <br>
 **OpenVINO** - where VINO stands for Open Visual Inference and Neural network Optimization - a toolkit from Intel to "extend computer vision and non-vision workloads across Intel® hardware, maximizing performance" [[Ref](https://docs.openvinotoolkit.org/latest/index.html)]. It is developed for usage on heterogeneous systems, but only made by Intel®, so when it bought Terasic Inc, OpenVINO extends to supporting FPGA's as well. Personally I have no expertise with this instrument, so more details are in other our article [here](/movidius) and [here](/movidius-2)
 
-#### Mipsology
-<img src="images/mipsology200x200.png" />
-Mipsology product called ***Zebra***- a deep learning compute engine for neural network interface [[Ref](https://mipsology.com/)]. They promise that if the network was trained in any method, it could be run on CPU, GPU and FPGA with zero efforts without any changes inside the neural network and training process, what is more, it will be faster then before [[Ref](https://www.xilinx.com/video/events/mipsology-demonstrates-zebra.html)]
 
 #### Vitis AI
 Vitis - SDK from Xilinx. More info [here](https://www.xilinx.com/products/design-tools/vitis.html). <br>
-<img src="images/vitis.jpg" />
+<img src="images/vitis.jpg">
 **Vitis AI** is a development platform for AI inference on Xilinx hardware platforms (FPGA, Cloud) [[Ref](https://www.xilinx.com/products/design-tools/vitis/vitis-ai.html)]. It supports models designed and trained on Caffee, TensorFlow, and PyTorch. The workflow is: <br>
 Develop a model using any framework (but using only supporting layers and versions, that are described in the official documentation)
 Train the model
