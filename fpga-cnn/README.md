@@ -37,3 +37,25 @@ Quantizer: Float32 -> Int8 quantization to make the model faster and lighter. Lo
 Performance (from experience): <br>
 As far as it is impossible to deploy unsupported layers, by replacing Instance norm with the Batch norm, it managed to reduce the time in average from 32ms to 9ms, but the MAPE (mean absolute percentage error) is up to 10%. We think it is because of replacing such a vital layer but cannot check this assumption.
 
+### PYNQ
+PYNQ - open-source project from Xilinx, that makes possible to use Python language and libraries to run it on Xilinx platforms [[Ref](http://www.pynq.io/)]. PYNQ is usually used for developers, who want to make a fast test of their solutions on FPGA without programming on C++. There are eight officially supported boards, but as far as PYNQ is open-sourced, there are much more unofficially supported boards, only by the community. <br>
+What is more - about CNN's - there are many examples of running CNN's on FPGA's ([for example here](https://github.com/awai54st/PYNQ-Classification)), but cannot even talk about acceleration - PYNQ is a very high-level approach, easy to use but tough to optimize. So let us look at low-level approaches.
+
+## Low-level approaches for CNN's acceleration
+Low-level programming is tightly connected with optimization and self-management of all resources - from memory to counting and reducing a real number of operations. <br>
+Neural Networks are very heavy - they can be a hundred megabytes. Not every embedded device, especially FPGA, can contain and run such networks, only the best of them. And for what? Embedded devices used to be low-power, high-performance and highly-optimized. So how to accelerate CNN's for FPGA's?
+
+### Lifehacks
+
+#### Quantisation
+Usually, CNN's weights are floating points, FP32 numbers. It is so to make accuracy as high as possible during training. However, is it necessary in the outgoing network? There are Binary neural networks, and their final weights are booleans, 0 or 1. <br>
+FP is vital for training, but not in the outgoing network. Training time is not so important, as final execution accuracy, but add or multiply FP numbers is much slower, needs more power and hardware resources, then INT. <br> 
+That is why quantisation is a solution - we can convert FP32 to INT16/INT8 numbers, calculate the accuracy, latency and throughput and compare them. The result can be better if used not just rounding, but deep analysis with it. <br>
+Every system has its approach to quantisation, Tensorflow has supervised and unsupervised approaches [[Ref](https://www.tensorflow.org/lite/performance/post_training_quantization)], Caffe has Ristretto  [[Ref](http://lepsucd.com/ristretto-cnn-approximation/)]. Vitis AI has its optimiser in pair with a quantiser. In all cases, we get some increase in latency with a decrease in accuracy. <br>
+Important info - it is necessary to convert not only weights, but also layers, operations on that weights.
+
+#### Parallelism
+
+#### Cache
+
+#### Pipes
