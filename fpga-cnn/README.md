@@ -65,7 +65,7 @@ Important info - it is necessary to convert not only weights, but also layers, o
 
 #### Parallelism
 **Parallelism** or **parallel computing** is the approach to programming where one task is divided into a lot of small tasks and compute simultaneously. FPGA is one of the best examples of the hardware realisation of parallelism. As far as it is possible to make our horizontally scalable circuit, it is possible to scale it on the FPGA. Convolution is the operation that can be easily parallelised, as shown here: 
-<img src="images/conv_parallel.jpg">
+<img src="images/conv_parallel.jpg"><br>
 So we can either simultaneously apply multiple kernels to the image or simultaneously apply each kernel in a few positions. In both cases, we have parallelism that can be implemented in hardware using the FPGA.
 
 
