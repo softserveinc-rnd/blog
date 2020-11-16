@@ -49,7 +49,7 @@ Neural Networks are very heavy - they can be a hundred megabytes. Not every embe
 
 #### GEMM
 As it was mentioned before, the most expensive operation in the convolutional networks is the convolution. To accelerate the calculations, we can use GEMM - General Matrix Multiply. The `im2col` operation can be used to make this.  
-<img src="images/im2col.png">
+<img src="images/im2col.png"><br>
 After the transformation of the kernels and input image, the convolution operation becomes simple matrixes multiplication, and after that, the repatch is required. There are many ways to accelerate matrixes multiplication.
 <img src="images/simd.png">
 For example, using CPU's SIMD registers (or even CUDA SIMT - single instruction multiple threads approach) vectors can be multiplied in one tact, and it can accelerate up to two times [[Ref](https://github.com/Myralllka/SOFTSERVE_CNN_convolution_2D)]
@@ -65,7 +65,7 @@ Important info - it is necessary to convert not only weights, but also layers, o
 
 #### Parallelism
 **Parallelism** or **parallel computing** is the approach to programming where one task is divided into a lot of small tasks and compute simultaneously. FPGA is one of the best examples of the hardware realisation of parallelism. As far as it is possible to make our horizontally scalable circuit, it is possible to scale it on the FPGA. Convolution is the operation that can be easily parallelised, as shown here: 
-<img src="images/conv.jpg">
+<img src="images/conv_parallel.jpg">
 So we can either simultaneously apply multiple kernels to the image or simultaneously apply each kernel in a few positions. In both cases, we have parallelism that can be implemented in hardware using the FPGA.
 
 
