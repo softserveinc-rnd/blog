@@ -67,4 +67,14 @@ Important info - it is necessary to convert not only weights, but also layers, o
 <img src="images/conv_parallel.jpg"><br>
 So we can either simultaneously apply multiple kernels to the image or simultaneously apply each kernel in a few positions. In both cases, we have parallelism that can be implemented in hardware using the FPGA.
 
+### Different FPGA design types, caching and pipeline
+One of the key challenges in designing high-performance FPGA-based CNN accelerator is to take full advantage of the on-chip computing resource. That is why the DSP, logic, cashing and pipes are so important. Convolution, by itself, consists of MAC (multiply-accumulate operations). That is why authors of **DSP-Efficient Hardware Acceleration of Convolutional Neural Network Inference on FPGAs** article divided all possible inferences into three (and we add fourth, thair) groups of approaches. 
+
+##### SDConv
+
+##### FDConv
+
+##### SpConv
+
+##### ABM-SpConv
 
