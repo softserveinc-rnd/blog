@@ -45,7 +45,12 @@ What is more - about CNN's - there are many examples of running CNN's on FPGA's 
 Low-level programming is tightly connected with optimization and self-management of all resources - from memory to counting and reducing a real number of operations. <br>
 Neural Networks are very heavy - they can be a hundred megabytes. Not every embedded device, especially FPGA, can contain and run such networks, only the best of them. And for what? Embedded devices used to be low-power, high-performance and highly-optimized. So how to accelerate CNN's for FPGA's?
 
-### Lifehacks
+### Lifehacks how to make faster
+
+#### GEMM
+As it was mentioned before, the most expensive operation in the convolutional networks is the convolution. To accelerate the calculations, we can use GEMM - General Matrix Multiply. The `im2col` operation can be used to make this.  
+<img src="images/im2col.jpg">
+After the transformation of the kernels and input image, the convolution operation becomes simple matrixes multiplication, and after that, the repatch is required. There are many ways to accelerate matrixes multiplication. For example, using CPU's SIMD registers (or even CUDA SIMT - single instruction multiple threads approach) vectors can be multiplied in one tact, and it can accelerate up to two times [[Ref](https://github.com/Myralllka/SOFTSERVE_CNN_convolution_2D)]
 
 #### Quantisation
 Usually, CNN's weights are floating points, FP32 numbers. It is so to make accuracy as high as possible during training. However, is it necessary in the outgoing network? There are Binary neural networks, and their final weights are booleans, 0 or 1. <br>
@@ -58,4 +63,5 @@ Important info - it is necessary to convert not only weights, but also layers, o
 **Parallelism** or **parallel computing** is the approach to programming where one task is divided into a lot of small tasks and compute simultaneously. FPGA is one of the best examples of the hardware realisation of parallelism. As far as it is possible to make our horizontally scalable circuit, it is possible to scale it on the FPGA. Convolution is the operation that can be easily parallelised, as shown here: 
 <img src="images/conv.jpg">
 So we can either simultaneously apply multiple kernels to the image or simultaneously apply each kernel in a few positions. In both cases, we have parallelism that can be implemented in hardware using the FPGA.
+
 
