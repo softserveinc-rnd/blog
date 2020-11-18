@@ -78,3 +78,11 @@ One of the key challenges in designing high-performance FPGA-based CNN accelerat
 
 ##### ABM-SpConv
 
+## Sources
+**MIT Technology Review**, February 24, 2020: "We're not prepared for the end of Moore's Law" by Devid Rotman, [Ref](https://www.technologyreview.com/2020/02/24/905789/were-not-prepared-for-the-end-of-moores-law/)
+**Intro to Vitis AI**, [Ref](https://www.slideshare.net/insideHPC/introducing-the-vitis-unified-software-platform-for-programming-fpgas)
+**Electronic Engineering Journal**, October 4, 2019: "Xilinx Vitis and Vitis AI Software Development Platforms" by Kevin Morris [[Ref](https://www.eejournal.com/article/xilinx-vitis-and-vitis-ai-software-development-platforms/)]
+https://www.slideshare.net/EmanueleGhelfi/cnn-quantization
+**A Parallel FPGA Implementation of Image Convolution**, 2016 by Henrik Ström [[Ref](https://www.diva-portal.org/smash/get/diva2:930724/FULLTEXT01.pdf)]
+**DSP-Efficient Hardware Acceleration of Convolutional Neural Network Inference on FPGAs**, September 2019, Dong Wang, Ke Xu, Jingning Guo, and Soheil Ghiasi
+
