@@ -84,5 +84,5 @@ So authors sad that the main problem is that all of this computations can not be
 
 ##### Caching
 the FPGA have much on-chip memory that is uniformly distributed on the board, that can be used as a cache or RAM and makes the latency less than accessing the flash memory. For example, the design of Intel® Cyclon 10
-<img src="images/scheme.png"> [[Ref](https://www.intel.co.jp/content/dam/altera-www/global/en_US/documentation/rqk1517250959424/ezd1517849810689.png)]
+<img src="images/scheme.png"> [[Ref](https://www.intel.co.jp/content/dam/altera-www/global/en_US/documentation/rqk1517250959424/ezd1517849810689.png)] <br>
 So the on-chip memory can be used in different ways, and in the case of the ABM-SpConv, they use the memory to cache the results of multiplications and number of each multiplication in specific tables, that helps to accelerate the final inferences.
