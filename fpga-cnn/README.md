@@ -68,21 +68,21 @@ Important info - it is necessary to convert not only weights, but also layers, o
 So we can either simultaneously apply multiple kernels to the image or simultaneously apply each kernel in a few positions. In both cases, we have parallelism that can be implemented in hardware using the FPGA.
 
 ### Different FPGA design types, caching and pipeline
-One of the key challenges in designing high-performance FPGA-based CNN accelerator is to take full advantage of the on-chip computing resource. That is why the DSP, logic, cashing and pipes are so important. Convolution, by itself, consists of MAC (multiply-accumulate operations). That is why authors of **DSP-Efficient Hardware Acceleration of Convolutional Neural Network Inference on FPGAs** article divided all possible inferences into three (and we add fourth, thair) groups of approaches. 
+One of the key challenges in designing high-performance FPGA-based CNN accelerator is to take full advantage of the on-chip computing resource. That is why the DSP, logic, caching and pipes are so important. Convolution, by itself, consists of MAC (multiply-accumulate operations). That is why authors of **DSP-Efficient Hardware Acceleration of Convolutional Neural Network Inference on FPGAs** article divided all possible inferences into three (and we add fourth, thair) groups of approaches.
 
-##### SDConv
+#### SDConv
+"Directly exploit the parallelism of the convolution computation in Spatial Domain by performing a massive number of MAC operations on a large array of DSP blocks in every cycle." It has a computational roof that is proportional to the number of MAC units and the operations frequency.
 
-##### FDConv
+#### FDConv
+Frequency Domain Convolution. "By transforming the data into frequency domain representation, the sliding window operation of SDConv turns into an inner product operation, which significantly reduces the number of the MAC operations required for convolution." Also, the authors presented a highly optimized FDConv, which "saves up to 73% of the MAC operation, and result in a theoretical speedup of 3.7x in peak performance".
 
-##### SpConv
+#### SpConv
+Sparse Convolution - "Scheme which saves MAC operation by directly pruning the CNN model. Unimportant weights (parameters) are forced to zero during the training or fine-tuning stages so that they no longer contribute to any computational workload and memory bandwidth during inference computation."
 
-##### ABM-SpConv
+#### ABM-SpConv
+So authors sad that the main problem is that all of this computations can not be achieved in real-life approaches, because they all utilised 97-100% DSP blocks, but in the applied problems such as robotics, autonomous vehicles -  the CNN is not the most important part, there also can be some units that need DSP blocks, so the results of computations can be far away from described. So they introduced a new kind of designs called Accumulate-Before-Multiply Sparse Convolution. The main idea is to decouple the accumulate and multiply operations, create a useful cache using the on-chip memory and create pipelines to make it faster.
 
-## Sources
-**MIT Technology Review**, February 24, 2020: "We're not prepared for the end of Moore's Law" by Devid Rotman, [Ref](https://www.technologyreview.com/2020/02/24/905789/were-not-prepared-for-the-end-of-moores-law/)
-**Intro to Vitis AI**, [Ref](https://www.slideshare.net/insideHPC/introducing-the-vitis-unified-software-platform-for-programming-fpgas)
-**Electronic Engineering Journal**, October 4, 2019: "Xilinx Vitis and Vitis AI Software Development Platforms" by Kevin Morris [[Ref](https://www.eejournal.com/article/xilinx-vitis-and-vitis-ai-software-development-platforms/)]
-https://www.slideshare.net/EmanueleGhelfi/cnn-quantization
-**A Parallel FPGA Implementation of Image Convolution**, 2016 by Henrik Ström [[Ref](https://www.diva-portal.org/smash/get/diva2:930724/FULLTEXT01.pdf)]
-**DSP-Efficient Hardware Acceleration of Convolutional Neural Network Inference on FPGAs**, September 2019, Dong Wang, Ke Xu, Jingning Guo, and Soheil Ghiasi
-
+##### Caching
+the FPGA have much on-chip memory that is uniformly distributed on the board, that can be used as a cache or RAM and makes the latency less than accessing the flash memory. For example, the design of Intel® Cyclon 10
+<img src="images/scheme.png"> [[Ref](https://www.intel.co.jp/content/dam/altera-www/global/en_US/documentation/rqk1517250959424/ezd1517849810689.png)]
+So the on-chip memory can be used in different ways, and in the case of the ABM-SpConv, they use the memory to cache the results of multiplications and number of each multiplication in specific tables, that helps to accelerate the final inferences.
