@@ -95,14 +95,13 @@ It is the fastest of known matrix multiplication algorithms. If naïve matrix mu
 
 
 ## Sources
-**MIT Technology Review**, February 24, 2020: "We're not prepared for the end of Moore's Law" by Devid Rotman, [Ref](https://www.technologyreview.com/2020/02/24/905789/were-not-prepared-for-the-end-of-moores-law/)
-**Intro to Vitis AI**, [Ref](https://www.slideshare.net/insideHPC/introducing-the-vitis-unified-software-platform-for-programming-fpgas)
-**Electronic Engineering Journal**, October 4, 2019: "Xilinx Vitis and Vitis AI Software Development Platforms" by Kevin Morris [[Ref](https://www.eejournal.com/article/xilinx-vitis-and-vitis-ai-software-development-platforms/)]
-https://www.slideshare.net/EmanueleGhelfi/cnn-quantization
-**A Parallel FPGA Implementation of Image Convolution**, 2016 by Henrik Ström [[Ref](https://www.diva-portal.org/smash/get/diva2:930724/FULLTEXT01.pdf)]
-**DSP-Efficient Hardware Acceleration of Convolutional Neural Network Inference on FPGAs**, September 2019, Dong Wang, Ke Xu, Jingning Guo, and Soheil Ghiasi
-**A framework for generating high throughput CNN implementations on FPGAs,** by H. Zeng et al., in Proc. FPGA, New York, NY, USA, 2018, pp.117-126. 
-**A Scalable Framework for Acceleration of CNN Training on Deeply-Pipelined FPGA Clusters with Weight and Workload Balancing**, January 2019, by Tong Geng, Boston University, [[Ref](https://www.groundai.com/project/a-scalable-framework-for-acceleration-of-cnn-training-on-deeply-pipelined-fpga-clusters-with-weight-and-workload-balancing/1)]
-**FPDeep: Acceleration and Load Balancing of CNN Training on FPGA Clusters**, by Tong Geng, Tianqi Wang, Ahmed Sanaullah, Chen Yang, Rui Xu, Rushi Patel, Martin Herbordt. [[Ref](https://www.bu.edu/caadlab/FCCM18a.pdf)]
-**Convolution Accelerator Designs Using Fast Algorithms**, May 2019, by Yulin Zhao, Donghui Wang, Leiou Wang
+- **MIT Technology Review**, February 24, 2020: "We're not prepared for the end of Moore's Law" by Devid Rotman, [[Ref](https://www.technologyreview.com/2020/02/24/905789/were-not-prepared-for-the-end-of-moores-law/)] <br>
+- **Intro to Vitis AI**, [[Ref](https://www.slideshare.net/insideHPC/introducing-the-vitis-unified-software-platform-for-programming-fpgas)]<br>
+- **Electronic Engineering Journal**, October 4, 2019: "Xilinx Vitis and Vitis AI Software Development Platforms" by Kevin Morris [[Ref](https://www.eejournal.com/article/xilinx-vitis-and-vitis-ai-software-development-platforms/)]<br>
+- **A Parallel FPGA Implementation of Image Convolution**, 2016 by Henrik Ström [[Ref](https://www.diva-portal.org/smash/get/diva2:930724/FULLTEXT01.pdf)]<br>
+- **DSP-Efficient Hardware Acceleration of Convolutional Neural Network Inference on FPGAs**, September 2019, Dong Wang, Ke Xu, Jingning Guo, and Soheil Ghiasi<br>
+- **A framework for generating high throughput CNN implementations on FPGAs,** by H. Zeng et al., in Proc. FPGA, New York, NY, USA, 2018, pp.117-126.<br>
+- **A Scalable Framework for Acceleration of CNN Training on Deeply-Pipelined FPGA Clusters with Weight and Workload Balancing**, January 2019, by Tong Geng, Boston University, [[Ref](https://www.groundai.com/project/a-scalable-framework-for-acceleration-of-cnn-training-on-deeply-pipelined-fpga-clusters-with-weight-and-workload-balancing/1)]<br>
+- **FPDeep: Acceleration and Load Balancing of CNN Training on FPGA Clusters**, by Tong Geng, Tianqi Wang, Ahmed Sanaullah, Chen Yang, Rui Xu, Rushi Patel, Martin Herbordt. [[Ref](https://www.bu.edu/caadlab/FCCM18a.pdf)]<br>
+- **Convolution Accelerator Designs Using Fast Algorithms**, May 2019, by Yulin Zhao, Donghui Wang, Leiou Wang<br>
 
