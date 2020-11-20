@@ -91,4 +91,4 @@ So the on-chip memory can be used in different ways, and in the case of the ABM-
 The pipeline is one more powerful feature that is often used for the low-level optimizations on the hardware. Pipelines help to reduce the number of memory accesses by using only on-chip memory and DSP blocks. It is a streaming approach to programs developing.
 
 #### Strassen-Winograd algorithm
-It is the fastest of known matrix multiplication algorithms. If naïve matrix multiplication takes about O($n^3$), this algorithm can reduce the time to O($n^{2.3754}$). The main idea behind is to replace the multiplications with additions by different transformations. Details are well described in appendix A [here](https://www.mdpi.com/1999-4893/12/5/112/pdf).
+It is the fastest of known matrix multiplication algorithms. If naïve matrix multiplication takes about O($`n^3`$), this algorithm can reduce the time to O($`n^{2.3754}`$). The main idea behind is to replace the multiplications with additions by different transformations. Details are well described in appendix A [here](https://www.mdpi.com/1999-4893/12/5/112/pdf).
