@@ -42,7 +42,7 @@ Performance (from experience): <br>
 As far as it is impossible to deploy unsupported layers, by replacing Instance norm with the Batch norm, it managed to reduce the time in average from 32ms to 9ms, but the MAPE (mean absolute percentage error) is up to 10%. We think it is because of replacing such a vital layer but cannot check this assumption.
 
 ### PYNQ
-PYNQ - open-source project from Xilinx, that makes possible to use Python language and libraries to run it on Xilinx platforms [[Ref](http://www.pynq.io/)]. PYNQ is usually used for developers, who want to make a fast test of their solutions on FPGA without programming on C++. There are eight officially supported boards, but as far as PYNQ is open-sourced, there are much more unofficially supported boards, only by the community. <br>
+PYNQ - open-source project from Xilinx, that makes possible to use Python language and libraries to run it on Xilinx platforms [[Ref](http://www.pynq.io/)]. PYNQ is usually used for developers, who want to make a fast test of their solutions on FPGA without programming on C++. There are eight officially supported boards, but as far as PYNQ is open-sourced, there are much more unofficially supported boards, only by the community. All such boards use DPU,(Deep learning Processor Unit deployed on the FPGA) to process the code.<br>
 What is more - about CNN's - there are many examples of running CNN's on FPGA's ([for example here](https://github.com/awai54st/PYNQ-Classification)), but cannot even talk about acceleration - PYNQ is a very high-level approach, easy to use but tough to optimize. So let us look at low-level approaches.
 
 ## Low-level approaches for CNN's acceleration
