@@ -26,9 +26,12 @@ Mipsology product called **Zebra** - a deep learning compute engine for neural n
 Vitis - SDK from Xilinx. More info [here](https://www.xilinx.com/products/design-tools/vitis.html). <br>
 <img src="images/vitis.jpg">
 **Vitis AI** is a development platform for AI inference on Xilinx hardware platforms (FPGA, Cloud) [[Ref](https://www.xilinx.com/products/design-tools/vitis/vitis-ai.html)]. It supports models designed and trained on Caffee, TensorFlow, and PyTorch. The workflow is: <br>
-Develop a model using any framework (but using only supporting layers and versions, that are described in the official documentation)
-Train the model
-Optimize, Compile and Quantize the model using Vitis AI tools
+- Develop a model using any framework (but using only supporting layers and versions, that are described in the official documentation)
+- Train the model 
+- Optimize
+- Compile 
+- Quantize
+- And all using Vitis AI tools
 Run the model on the DPU (Deep learning Processing Unit) - a particular IP block for Xilinx boards with UltraScale+ chip on it. It is a part of Vitis AI.
 That is it! The development process is simple and is designed for AI programmers as much as for Embedded programmers.
 Performance (from official sites):
