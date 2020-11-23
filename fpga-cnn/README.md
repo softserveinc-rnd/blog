@@ -32,7 +32,7 @@ Vitis - SDK from Xilinx. More info [here](https://www.xilinx.com/products/design
 - Compile 
 - Quantize
 - And all using Vitis AI tools
-Run the model on the DPU (Deep learning Processing Unit) - a particular IP block for Xilinx boards with UltraScale+ chip on it. It is a part of Vitis AI.
+- Run the model on the DPU (Deep learning Processing Unit) - a particular IP block for Xilinx boards with UltraScale+ chip on it. It is a part of Vitis AI.<br>
 That is it! The development process is simple and is designed for AI programmers as much as for Embedded programmers.
 Performance (from official sites):
 Optimizer: reduce the model complexity from 5 to 50 times. Loss: up to 1% of accuracy.
