@@ -20,7 +20,7 @@ Terasic boards are the most popular FPGA's in the world, so if somebody has ever
 **OpenVINO** - where VINO stands for Open Visual Inference and Neural network Optimization - a toolkit from Intel to "extend computer vision and non-vision workloads across Intel® hardware, maximizing performance" [[Ref](https://docs.openvinotoolkit.org/latest/index.html)]. It is developed for usage on heterogeneous systems, but only made by Intel®, so when it bought Terasic Inc, OpenVINO extends to supporting FPGA's as well. Personally I have no expertise with this instrument, so more details are in other our article [here](/movidius) and [here](/movidius-2).
 
 ### Mipsology
-Mipsology product called **Zebra** - a deep learning compute engine for neural network interface [[Ref](https://mipsology.com)]. They promise that if the network was trained in any method, it could be run on CPU, GPU and FPGA with zero efforts without any changes inside the neural network and training process, what is more, it will be faster then before [[Ref](https://www.xilinx.com/video/events/mipsology-demonstrates-zebra.html)].
+Mipsology product called **Zebra** - a deep learning compute engine for neural network interface [[Ref](https://mipsology.com)]. They promise that if the network was trained in any method, it could be run on CPU, GPU and FPGA with zero efforts without any changes inside the neural network and training process, what is more, it will be faster than before [[Ref](https://www.xilinx.com/video/events/mipsology-demonstrates-zebra.html)].
 
 ### Vitis AI
 Vitis - SDK from Xilinx. More info [here](https://www.xilinx.com/products/design-tools/vitis.html). <br>
@@ -61,7 +61,7 @@ GEMM also can be used on the FPGA, and this approach is useful for CUDA, but not
 
 #### Quantisation
 Usually, CNN's weights are floating points, FP32 numbers. It is so to make accuracy as high as possible during training. However, is it necessary in the outgoing network? There are Binary neural networks, and their final weights are booleans, 0 or 1. <br>
-FP is vital for training, but not in the outgoing network. Training time is not so important, as final execution accuracy, but add or multiply FP numbers is much slower, needs more power and hardware resources, then INT. <br> 
+FP is vital for training, but not in the outgoing network. Training time is not so important, as final execution accuracy, but add or multiply FP numbers is much slower, needs more power and hardware resources, than INT. <br> 
 That is why quantisation is a solution - we can convert FP32 to INT16/INT8 numbers, calculate the accuracy, latency and throughput and compare them. The result can be better if used not just rounding, but deep analysis with it. <br>
 Every system has its approach to quantisation, Tensorflow has supervised and unsupervised approaches [[Ref](https://www.tensorflow.org/lite/performance/post_training_quantization)], Caffe has Ristretto  [[Ref](http://lepsucd.com/ristretto-cnn-approximation/)]. Vitis AI has its optimiser in pair with a quantiser. In all cases, we get some increase in latency with a decrease in accuracy. <br>
 Important info - it is necessary to convert not only weights, but also layers, operations on that weights.
