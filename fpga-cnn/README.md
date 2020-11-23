@@ -95,7 +95,7 @@ So the on-chip memory can be used in different ways, and in the case of the ABM-
 The pipeline is one more powerful feature that is often used for the low-level optimizations on the hardware. Pipelines help to reduce the number of memory accesses by using only on-chip memory and DSP blocks. It is a streaming approach to programs developing.
 
 #### Strassen-Winograd algorithm
-It is the fastest of known matrix multiplication algorithms. If naïve matrix multiplication takes about O(![](https://latex.codecogs.com/svg.latex?n%5E3)), this algorithm can reduce the time to O(![](https://latex.codecogs.com/svg.latex?n%5E%7B2.3754%7D)). The main idea behind is to replace the multiplications with additions by different transformations. Details are well described in appendix A [here](https://www.mdpi.com/1999-4893/12/5/112/pdf).
+It is the fastest of known matrix multiplication algorithms. If naïve matrix multiplication takes about O(![](https://latex.codecogs.com/svg.latex?n%5E3)), this algorithm can reduce the time to O(![](https://latex.codecogs.com/svg.latex?n%5E%7B2.3754%7D)). The main idea behind is to replace the multiplications with additions by different transformations. Details are well described in appendix A [here](https://www.mdpi.com/1999-4893/12/5/112/pdf) for Strassen algorithm, and [here](https://www.sciencedirect.com/science/article/pii/S0747717108800132?via%3Dihub) for Winograd "Matrix Multiplication via Arithmetic Progressions".
 
 
 ## Sources
@@ -108,4 +108,4 @@ It is the fastest of known matrix multiplication algorithms. If naïve matrix mu
 - **A Scalable Framework for Acceleration of CNN Training on Deeply-Pipelined FPGA Clusters with Weight and Workload Balancing**, January 2019, by Tong Geng, Boston University, [[Ref](https://www.groundai.com/project/a-scalable-framework-for-acceleration-of-cnn-training-on-deeply-pipelined-fpga-clusters-with-weight-and-workload-balancing/1)]<br>
 - **FPDeep: Acceleration and Load Balancing of CNN Training on FPGA Clusters**, by Tong Geng, Tianqi Wang, Ahmed Sanaullah, Chen Yang, Rui Xu, Rushi Patel, Martin Herbordt. [[Ref](https://www.bu.edu/caadlab/FCCM18a.pdf)]<br>
 - **Convolution Accelerator Designs Using Fast Algorithms**, May 2019, by Yulin Zhao, Donghui Wang, Leiou Wang<br>
-
+- **Matrix Multiplication via Arithmetic Progressions**, May 1987, by Don Coi'Persmith and Shmuel, Winograd<br>
