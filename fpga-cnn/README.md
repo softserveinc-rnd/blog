@@ -94,8 +94,25 @@ So the on-chip memory can be used in different ways, and in the case of the ABM-
 ##### Pipelines
 The pipeline is one more powerful feature that is often used for the low-level optimizations on the hardware. Pipelines help to reduce the number of memory accesses by using only on-chip memory and DSP blocks. It is a streaming approach to programs developing.
 
-#### Strassen-Winograd algorithm
-It is the fastest of known matrix multiplication algorithms. If naïve matrix multiplication takes about O(![](https://latex.codecogs.com/svg.latex?n%5E3)), this algorithm can reduce the time to O(![](https://latex.codecogs.com/svg.latex?n%5E%7B2.3754%7D)). The main idea behind is to replace the multiplications with additions by different transformations. Details are well described in appendix A [here](https://www.mdpi.com/1999-4893/12/5/112/pdf) for Strassen algorithm, and [here](https://www.sciencedirect.com/science/article/pii/S0747717108800132?via%3Dihub) for Winograd "Matrix Multiplication via Arithmetic Progressions".
+#### Winograd 
+There is a large group of algorithms that make the convolution faster. They are known as **fast convolution** algorithms. The very first algorithm in this group was [Strassen algorithm](https://en.wikipedia.org/wiki/Strassen_algorithm), that reduced the number of operations from ![](https://latex.codecogs.com/svg.latex?O%28n%5E%7B3%7D%29) up to ![](https://latex.codecogs.com/svg.latex?O%28n%5E%7B2.8074%7D%29). The next iteration of researches was an article "Matrix Multiplication via Arithmetic Progressions" by Don CopPersmith and Shmuel Winograd, 1987. In the proposed optimisations to the Strassen's idea, that now known as **Coppersmith–Winograd algorithm**, they describe an approach that reduces the complexity up to ![](https://latex.codecogs.com/svg.latex?O%28n%5E%7B2.375477%7D%29) and this approach becomes the best matrices multiplication approach up to the 2010 year. After that, there were few optimisations, and now the fastest known algorithm complexity is ![](https://latex.codecogs.com/svg.latex O%28n%5E%7B2.3728639%7D%29), proposed in 2014 by François Le Gall, but this improvement is such small that is not very important.
+The main idea behind all these algorithms is to reduce the number of multiplications by using different transformations. For example, one-dim convolution:<br>
+f - input image, g - kernel<br>
+![](https://latex.codecogs.com/gif.latex?f%20%3D%20%5B1%2C%202%2C%203%2C%204%5D%2C%20g%20%3D%20%5B-1%20-2%2C%20-3%5D)<br>
+using `im2com` operation, **f** and **g** will be: <br>
+![](https://latex.codecogs.com/gif.latex?f%20%3D%20%5Cbegin%7Bbmatrix%7D%201%2C%202%2C%203%20%5C%5C%202%2C%203%2C%204%20%5Cend%7Bbmatrix%7D)
+![](https://latex.codecogs.com/gif.latex?g%20%3D%20%5Cbegin%7Bbmatrix%7D%20-1%20%5C%5C%20-2%5C%5C%20-3%20%5Cend%7Bbmatrix%7D)<br>
+![](https://latex.codecogs.com/gif.latex?result%20%3D%20%5Cbegin%7Bbmatrix%7D%201%2C%202%2C%203%5C%5C%202%2C%203%2C%204%20%5Cend%7Bbmatrix%7D%20*%20%5Cbegin%7Bbmatrix%7D%20-1%20%5C%5C%20-2%5C%5C%20-3%20%5Cend%7Bbmatrix%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%20m_1%20&plus;%20m_2%20&plus;%20m_3%5C%5C%20m_2%20-%20m_3%20-%20m_4%20%5Cend%7Bbmatrix%7D)<br>
+Generalization: <br>
+![](https://latex.codecogs.com/gif.latex?result%20%3D%20%5Cbegin%7Bbmatrix%7D%20d_0%2C%20d_1%2C%20d_2%5C%5C%20d_2%2C%20d_3%2C%20d_4%20%5Cend%7Bbmatrix%7D%20*%20%5Cbegin%7Bbmatrix%7D%20g_1%5C%5C%20g_2%5C%5C%20g_3%20%5Cend%7Bbmatrix%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%20m_1%20&plus;%20m_2%20&plus;%20m_3%5C%5C%20m_2%20-%20m_3%20-%20m_4%20%5Cend%7Bbmatrix%7D)<br>
+where: <br>
+![](https://latex.codecogs.com/gif.latex?%5C%5C%5C%5Cm1%20%3D%20%28d_0%20-%20d_2%29g_0%5C%5C%5C%5C%20m_2%20%3D%20%28d_1%20&plus;%20d_2%29%5Cfrac%7Bg_0%20&plus;%20g_1%20&plus;%20g_2%7D%7B2%7D%5C%5C%5C%5C%20m_3%20%3D%20%28d_2%20-%20d_1%29%5Cfrac%7Bg_0%20-%20g_1%20&plus;%20g_2%7D%7B2%7D%5C%5C%5C%5C%20m_4%20%3D%20%28d_1%20-%20d_3%29g_2)<br>
+So we need only 4 `mul` operations instead of 6 in traditional matrices multiplication. One more important thing about kernels: <br>
+![]{https://latex.codecogs.com/gif.latex?%5C%5C%5C%5C%20%5Cfrac%7Bg_0%20&plus;%20g_1%20&plus;%20g_2%7D%7B2%7D%5C%5C%5C%5C%20%5Cfrac%7Bg_0%20-%20g_1%20&plus;%20g_2%7D%7B2%7D%5C%5C%5C%5C}<br>
+this multiplier depends only on kernel, so it can be calculated once and be cached.
+
+
+Details are well described in appendix A [here](https://www.mdpi.com/1999-4893/12/5/112/pdf) for Strassen algorithm, and [here](https://www.sciencedirect.com/science/article/pii/S0747717108800132?via%3Dihub) for Winograd "Matrix Multiplication via Arithmetic Progressions".
 
 
 ## Sources
@@ -108,4 +125,5 @@ It is the fastest of known matrix multiplication algorithms. If naïve matrix mu
 - **A Scalable Framework for Acceleration of CNN Training on Deeply-Pipelined FPGA Clusters with Weight and Workload Balancing**, January 2019, by Tong Geng, Boston University, [[Ref](https://www.groundai.com/project/a-scalable-framework-for-acceleration-of-cnn-training-on-deeply-pipelined-fpga-clusters-with-weight-and-workload-balancing/1)]<br>
 - **FPDeep: Acceleration and Load Balancing of CNN Training on FPGA Clusters**, by Tong Geng, Tianqi Wang, Ahmed Sanaullah, Chen Yang, Rui Xu, Rushi Patel, Martin Herbordt. [[Ref](https://www.bu.edu/caadlab/FCCM18a.pdf)]<br>
 - **Convolution Accelerator Designs Using Fast Algorithms**, May 2019, by Yulin Zhao, Donghui Wang, Leiou Wang<br>
-- **Matrix Multiplication via Arithmetic Progressions**, May 1987, by Don Coi'Persmith and Shmuel, Winograd<br>
+- **Matrix Multiplication via Arithmetic Progressions**, May 1987, by Don CopPersmith and Shmuel Winograd<br>
+- **Understanding Winograd Fast Convolution**, Jul 2019, by Deepak Mangla. [[Ref](https://blog.usejournal.com/understanding-winograd-fast-convolution-a75458744ff)]
