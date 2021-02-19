@@ -1,5 +1,9 @@
 #Running *Zephyr* on *nRF52840* board using `west` and *Eclipse* on Linux Ubuntu
 
+##Building
+
+*nRF52840* based board requires `west build` to have board identification set to `west build -b nrf52840_pca10056`. Other similar board identifiers for this controller are `nrf52840_pca10059` and `nrf52840_pca10090`. Select appropriately according to markings on board, with possible help from <https://docs.zephyrproject.org/2.1.0/boards/index.html>. If necessary adjust the version of *Zephyr* on the page and check appropriate board identifier.
+
 ##Connecting and flashing
 
 By default `west` attempts to flash the software to *nRF52840*  with `nrfjprog`. In order to use the *JLink* connection following steps may be needed. Note that links and versions mentioned here are valid for 15-02-2021.
