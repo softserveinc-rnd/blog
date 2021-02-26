@@ -1,4 +1,4 @@
-#Running *Zephyr* on *nRF52840* board using `west` and *Eclipse* on Linux Ubuntu
+#Running *Zephyr 2.1.0* on *nRF52840* board using `west` and *Eclipse* on Linux Ubuntu
 
 ##Building
 
