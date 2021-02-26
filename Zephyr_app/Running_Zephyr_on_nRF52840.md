@@ -1,8 +1,8 @@
-#Running *Zephyr 2.1.0* on *nRF52840* board using `west` and *Eclipse* on Linux Ubuntu
+#Running *Zephyr 2.5.99* on *nRF52840* board using `west` and *Eclipse* on Linux Ubuntu
 
 ##Building
 
-*nRF52840* based board requires `west build` to have board identification set to `west build -b nrf52840_pca10056`. Other similar board identifiers for this controller are `nrf52840_pca10059` and `nrf52840_pca10090`. Select appropriately according to markings on board, with possible help from <https://docs.zephyrproject.org/2.1.0/boards/index.html>. If necessary adjust the version of *Zephyr* on the page and check appropriate board identifier.
+*nRF52840* based board requires `west build` to have board identification set to `west build -b nrf52840dk_nrf52840`. There are also other similar board identifiers for this microcontroller. Select appropriately according to markings on board, with possible help from <https://docs.zephyrproject.org/latest/boards/index.html>. If necessary adjust the version of *Zephyr* on the page and check appropriate board identifier.
 
 ##Connecting and flashing
 
@@ -34,11 +34,14 @@ The debugging congifuration is set and you can use it. Other parameters (which a
 
 ###Configuring the console to use *JLink* connection
 
-You need to configure the *Zephyr* build system to use the *RTT*. In order to do that make sure that your `prj.conf` file contains following section:
-    CONFIG_HAS_SEGGER_RTT=y
+You need to configure the *Zephyr* build system to use the *RTT*. In order to do that make sure that your `Kconfig` and `prj.conf` files have configured.
+`Kconfig` must contain:
+    config HAS_SEGGER_RTT
+    	default y
+`prj.conf` must contain:
     CONFIG_USE_SEGGER_RTT=y
     CONFIG_RTT_CONSOLE=y  
-You may also need to disable other routings for the *Zephyr* console with:
+You may also need to disable other routings for the *Zephyr* console in `prj.conf` with:
     CONFIG_UART_CONSOLE=n  
 Rebuild the code and it will be using *RTT*.
 
