@@ -28,3 +28,6 @@ The software uses RTT terminal to communicate in a text form, however this is on
 + White - time adjustment was made, remains on till the end of scanning
 + Red - broadcasting in progress  
 As a visualisation of the synchronization there is a flash of blue light on second LED of the board. Flashes are made based on network time count and when it is synchronized they all come simultaneously.
+
+##Source code
+Currently (05-03-2021) source code is under following link: <https://gitlab.com/softservernd/things/zephyr-clock-synch/-/tree/synchronization_draft>.
