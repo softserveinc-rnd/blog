@@ -21,14 +21,15 @@ Timing is based on following parameters:
 
 Reason for the randomly added time is such that differentiating cycle lengths between nodes allows to shift the listening phase relatively to advertising phases of other nodes. This in turn secures the node against accidentally falling into constant unlucky time relation with peer that could make information exchange difficult. To avoid identical pseudorandom values in all nodes, the enthropy-based generator is selected instead of simpler time-based one.
 ###Communication
-For communication advertising mechanism of GAP is used. Advertising and scanning time is manually controlled. Time adjustment is done immediately in a callback function upon reception of data packet.  
+For communication advertising mechanism of GAP is used. Advertising and scanning time is manually controlled. Time adjustment is done immediately in a callback function upon reception of data packet. After time information is received the receiver is switched off in any case (adjustment made or not needed) to save energy.  
 Currently Zephyr's Bluetooth driver does not allow for more sophisticated communication control. In further implementation it would be profitable to receive the notification when the required number of broadcasts is sent and instantly enter the sleep mode. Similar action would be taken when time synchronization is executed, although this is a more complex situation and needs further consideration.
 ###User interface
 The software uses RTT terminal to communicate in a text form, however this is only available at devices connected to JLink. Visual status information is presented with RGB LED on the board. Colour of indication are following
 
 + Black - idle
 + Green - scanning in progress, can change to
-+ White - time adjustment was made, remains on till the end of scanning
++ White - time adjustment was made, remains on till the end of scanning, or
++ Yellow - time packet was received and adjustment was not needed
 + Red - broadcasting in progress
 
 As a visualisation of the synchronization there is a flash of blue light on second LED of the board. Flashes are made based on network time count and when it is synchronized they all come simultaneously.  
