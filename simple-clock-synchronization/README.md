@@ -24,7 +24,8 @@ Reason for the randomly added time is such that differentiating cycle lengths be
 For communication advertising mechanism of GAP is used. Advertising and scanning time is manually controlled. Time adjustment is done immediately in a callback function upon reception of data packet. After time information is received the receiver is usually switched off (adjustment made or not needed) to save energy.  
 Currently Zephyr's Bluetooth driver does not allow for more sophisticated communication control. In further implementation it would be profitable to receive the notification when the required number of broadcasts is sent and instantly enter the sleep mode. Similar action would be taken when time synchronization is executed, although this is a more complex situation and needs further consideration.
 ###Power management
-Power consumption is controlled by means of controlling the amount of time spent on actual scanning during BLE scan phase. A piepline of scalers is used starting from static selection of scan time fill according to amount of neighbours, then gradual reduction in case od lack of connections, optionally increase in vicinity of expected time o resynchronization and ending on terination of scanning once any advertising packet is received.
+Power consumption is controlled by means of controlling the amount of time spent on actual scanning during BLE scan phase. A piepline of scalers is used starting from static selection of scan time fill according to amount of neighbours, then gradual reduction in case od lack of connections, optionally increase in vicinity of expected time o resynchronization and ending on termination of scanning once any advertising packet is received.  
+A separate and largely independent power management method is prediction of transmission time and starting the receiver on a just-in-time basis. This allows for significant savings and increase of connection reliability, but it can also make the network very rigid and unaware of structure changes. So careful adjustment to application is needed for this method.
 ###User interface
 The software uses RTT terminal to communicate in a text form, however this is only available at devices connected to JLink. Visual status information is presented with LEDs on the board. 
 ####Colour of indication for Xenon boards
@@ -46,7 +47,7 @@ As a visualisation of the synchronization there is a flash of blue (on Xenon) or
 To simplify experimenting there is a possibility of resetting the node's network time with button press. Time synchronization is thus lost but the communication cycle is unchanged. Holding the button down additionaly blocks the synchronization until released.
 
 ##Source code
-Currently (19-04-2021) source code is under following link: <https://gitlab.com/softservernd/things/zephyr-clock-synch/-/tree/power_metering>.
+Currently (06-05-2021) source code is under following link: <https://gitlab.com/softservernd/things/zephyr-clock-synch/-/tree/master>.
 
 ##Results
 ###Current time parameters
@@ -61,5 +62,5 @@ For the initial implementation following time parameters are chosen:
 ###Operation
 Nodes demonstrated successful synchronization of time within at most several cycles. Usually newly started node was able to synchronize the time instantly after startup in the first scanning phase.  
 In certain circumstances it was possible that two new nodes synchronized with each other and not with the network time, however this state lasted shortly and within several cycles there was again correct network time synchronized everywhere.  
-Hydra nodes during power metering worked stable and held their time synchronization in expected fashion in various network circumstances. In long runs the actual probability of reception durine a cycle matched well the assumed one. Reconnection to network in conditions of low percentage of actual scan during scan phase (decreased after prolonged loss of connectivity) was always possible.
-
+Hydra nodes during power metering worked stable and held their time synchronization in expected fashion in various network circumstances. In long runs the actual probability of reception during a cycle matched well the assumed one. Reconnection to network in conditions of low percentage of actual scan during scan phase (decreased after prolonged loss of connectivity) was always possible.  
+Use of predictive scanning allowed for very stable connectivity with peers reaching 100% success in receiving at least one time signal in every cycle, usually more signals. This is independent from assumed reception probability for statistical methods.
